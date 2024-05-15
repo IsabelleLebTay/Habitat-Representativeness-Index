@@ -1,10 +1,8 @@
-library()
-
 # Specify the URL of the file you want to download
-url <- "https://sis.agr.gc.ca/cansis/nsdb/ecostrat/zone/ecozone_shp.zip"
+url <- "https://data-donnees.az.ec.gc.ca/api/file?path=/species%2Fprotectrestore%2Fcanadian-protected-conserved-areas-database%2FDatabases%2FAireProtegeeConservee_2022.gdb.zip"
 
 # Specify the file name and location where you want to save the file on your computer
-file_name <- "ecozone_shp.zip"
+file_name <- "proteced_areas.gdb"
 file_path <- "0_Data/"
 
 # Call the download.file() function, passing in the URL and file name/location as arguments
