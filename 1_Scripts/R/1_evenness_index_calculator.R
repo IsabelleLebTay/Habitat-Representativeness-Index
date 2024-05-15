@@ -12,7 +12,7 @@ gini_index <- function(p) {
   return(gini)
 }
 
-calculate_gini_indicator <- function(A, P) {
+calculate_evenness_indicator <- function(A, P) {
   # Calculate the biodiversity 30x30 target 3 indicator using the Gini index.
   
   # Calculate the proportion of protected area relative to total area for each ecoregion
