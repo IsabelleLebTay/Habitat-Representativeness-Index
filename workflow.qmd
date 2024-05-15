@@ -1,0 +1,47 @@
+---
+title: "Habitat representativeness index"
+author: "Isabelle Lebeuf-Taylor, Vanessa Di Maurizio, Vincent Bellavance et Benjamin Mercier"
+documentclass: book
+output:
+  html_document:
+    toc: true
+    number_sections: true
+  revealjs_presentation:
+    incremental: true   
+---
+
+```{r}
+# Download the ecozone data
+# Specify the URL of the file you want to download
+url <- "https://sis.agr.gc.ca/cansis/nsdb/ecostrat/zone/ecozone_shp.zip"
+
+# Specify the file name and location where you want to save the file on your computer
+file_name <- "ecozone_shp.zip"
+file_path <- "0_Data/"
+
+# Call the download.file() function, passing in the URL and file name/location as arguments
+download.file(url, paste(file_path, file_name, sep = ""), mode = "wb")
+
+# Unzip the folder
+unzip(paste0(file_path, file_name), exdir = "0_Data")
+
+# Download the protected areas data
+# Specify the URL of the file you want to download
+url <- "https://data-donnees.az.ec.gc.ca/api/file?path=/species%2Fprotectrestore%2Fcanadian-protected-conserved-areas-database%2FDatabases%2FAireProtegeeConservee_2023.zip"
+
+# Specify the file name and location where you want to save the file on your computer
+file_name <- "protected_shp.zip"
+file_path <- "0_Data/"
+
+# Call the download.file() function, passing in the URL and file name/location as arguments
+download.file(url, paste(file_path, file_name, sep = ""), mode = "wb")
+
+# Unzip the folder
+unzip(paste0(file_path, file_name), exdir = "0_Data")
+```
+
+```{r}
+library(sf)
+
+sf::st_layers("0_Data/AireProtegeeConservee_2023/AireProtegeeConservee_2023.gdb")
+```
