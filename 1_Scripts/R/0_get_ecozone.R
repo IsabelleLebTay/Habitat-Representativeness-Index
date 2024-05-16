@@ -1,4 +1,4 @@
-library()
+library(sf)
 
 # Specify the URL of the file you want to download
 url <- "https://sis.agr.gc.ca/cansis/nsdb/ecostrat/zone/ecozone_shp.zip"
