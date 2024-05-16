@@ -1,4 +1,13 @@
 gini_index <- function(p) {
+  # """
+  # Calculate the Gini index for a given distribution.
+  
+  # Parameters:
+  # p (array): Array representing the distribution proportions.
+  
+  # Returns:
+  # float: Gini index.
+  # """
   # Calculate the Gini index for a given distribution.
   
   n <- length(p)  # Number of elements in the array p
@@ -12,9 +21,17 @@ gini_index <- function(p) {
   return(gini)
 }
 
-calculate_gini_indicator <- function(A, P) {
+evenness_indicator <- function(A, P) {
+  # """
   # Calculate the biodiversity 30x30 target 3 indicator using the Gini index.
   
+  # Parameters:
+  # A (array): Total area of each ecoregion.
+  # P (array): Protected area within each ecoregion.
+  
+  # Returns:
+  # float: Indicator value bounded between 0 and 1.
+  # """  
   # Calculate the proportion of protected area relative to total area for each ecoregion
   p_per_area <- P / A
   
@@ -26,20 +43,3 @@ calculate_gini_indicator <- function(A, P) {
   
   return(indicator)  # Return the indicator value
 }
-
-# Simulate data for testing
-set.seed(42)  # For reproducibility
-num_ecoregions <- 4
-total_areas <- runif(num_ecoregions, 100, 1000)  # Total area of each ecoregion
-protected_areas <- mapply(function(x) runif(1, min = 0, max = x), total_areas)  # Protected area within each ecoregion
-
-# protected_areas <- total_areas * 0.25  # Protected area within each ecoregion
-
-# Calculate the indicator
-indicator_value <- calculate_gini_indicator(total_areas, protected_areas)
-
-# Print the results
-print(paste("Total Areas of Ecoregions:", paste(total_areas, collapse = ", ")))
-print(paste("Protected Areas within Ecoregions:", paste(protected_areas, collapse = ", ")))
-print(paste("Biodiversity 30x30 Target 3 Indicator:", indicator_value))
-
