@@ -148,18 +148,30 @@ DiagrammeR(
 
 ## Method
 
-The index is based on Gini index is calculated using the following formula:
+To calculate the evenness calculator, we take the *inverse* of the Gini inequality index, which is a measure of the extent to which a quantity of interest (traditionally income per countries) are equal across geographical zone.
+
+Here, our quantity of interest are the size of protected areas, and the geographical units are ecozones. However, the geographical zone can be any ecologically and jurisdictionally interesting type, like ecoregion, or province.
+
+Here, we take the inverse of the Gini index, so that 0 maps to low evenness and 1 is a perfect evenness.
+
+We have also adapted the index so it accepts *proportions* of protected areas within geographical zones, since our ecozones are of different size. This ensures that one unit increase in proportion in one region has the same weight as a unit increase in another. This works toward our goal of mapping an even distribution of protected areas across ecozones.
+
+The Protected Habitat Evenness Index is calculated as:
+
+
+$$
+PHEI = 1 - G
+$$
 
 $$
 G = 1 - \frac{2 \sum_{i=1}^{n} i \cdot p_i}{n \sum_{i=1}^{n} p_i} - \frac{n + 1}{n}
 $$
 
-Where:
-- *n* is the number of observations.
-- $p_{i}$ is the value at position *i* in the sorted array.
+Where
+*n* is the number of ecozones, and 
+$p_{i}$ is the proportion of protected area within the *i* ecozone's total area 
 
 
-The modified Gini Index: 
 
 
 
@@ -167,3 +179,7 @@ The modified Gini Index:
 
 # The data
 ![](figures/map.png)
+
+
+# Example of PHE Index over time
+![](figures/trend_example.png)

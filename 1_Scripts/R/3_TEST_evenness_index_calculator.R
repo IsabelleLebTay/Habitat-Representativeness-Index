@@ -1,3 +1,5 @@
+source("1_Scripts/R/3_evenness_index_calculator.R")
+
 # Test for evenness_indicator()
 # Simulate data for testing
 set.seed(42)  # For reproducibility

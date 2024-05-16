@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.353">
+<meta name="generator" content="quarto-1.3.450">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -34,7 +34,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="workflow_files/libs/bootstrap/bootstrap.min.js"></script>
 <link href="workflow_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="workflow_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
-<script src="workflow_files/libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+<script src="workflow_files/libs/htmlwidgets-1.6.3/htmlwidgets.js"></script>
 <script src="workflow_files/libs/d3-3.3.8/d3.min.js"></script>
 <script src="workflow_files/libs/dagre-0.4.0/dagre-d3.min.js"></script>
 <link href="workflow_files/libs/mermaid-0.3.0/dist/mermaid.css" rel="stylesheet">
@@ -147,24 +147,40 @@ ul.task-list li input[type="checkbox"] {
 <p>Headline indicator: Protected Habitat Coverage (PHC) Complementary indicator: Protected Habitat Eveness / Protection d’Habitat égal (PHE)</p>
 <div class="cell">
 <div class="cell-output-display">
-<div class="DiagrammeR html-widget html-fill-item" id="htmlwidget-1a2f20f91f79120699a2" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-1a2f20f91f79120699a2">{"x":{"diagram":"\n  graph TB\n  \n  A[Data ecoregion] --> C[Joined data]\n  B[Data protected areas] --> C[Joined data]\n  C --> E[Compute PHC by ecoregions and type and ecoregions]\n  C --> F[Compute PHE across ecoregions and types ecoregions]\n  E --> G[Visualize MAP]\n  F --> H[Visualize Score 3 bins: low-intermediary-high]\n  "},"evals":[],"jsHooks":[]}</script>
+
+
+<div class="DiagrammeR html-widget html-fill-item" id="htmlwidget-77596dd9159e7e45dc26" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-77596dd9159e7e45dc26">{"x":{"diagram":"\n  graph TB\n  \n  A[Data ecoregion] --> C[Joined data]\n  B[Data protected areas] --> C[Joined data]\n  C --> E[Compute PHC by ecoregions and type and ecoregions]\n  C --> F[Compute PHE across ecoregions and types ecoregions]\n  E --> G[Visualize MAP]\n  F --> H[Visualize Score 3 bins: low-intermediary-high]\n  "},"evals":[],"jsHooks":[]}</script>
+
+
 </div>
 </div>
 </section>
 <section id="method" class="level2">
 <h2 class="anchored" data-anchor-id="method">Method</h2>
-<p>The index is based on Gini index is calculated using the following formula:</p>
+
+<p>To calculate the evenness calculator, we take the <em>inverse</em> of the Gini inequality index, which is a measure of the extent to which a quantity of interest (traditionally income per countries) are equal across geographical zone.</p>
+<p>Here, our quantity of interest are the size of protected areas, and the geographical units are ecozones. However, the geographical zone can be any ecologically and jurisdictionally interesting type, like ecoregion, or province.</p>
+<p>Here, we take the inverse of the Gini index, so that 0 maps to low evenness and 1 is a perfect evenness.</p>
+<p>We have also adapted the index so it accepts <em>proportions</em> of protected areas within geographical zones, since our ecozones are of different size. This ensures that one unit increase in proportion in one region has the same weight as a unit increase in another. This works toward our goal of mapping an even distribution of protected areas across ecozones.</p>
+<p>The Protected Habitat Evenness Index is calculated as:</p>
+<p><span class="math display">\[
+PHEI = 1 - G
+\]</span></p>
 <p><span class="math display">\[
 G = 1 - \frac{2 \sum_{i=1}^{n} i \cdot p_i}{n \sum_{i=1}^{n} p_i} - \frac{n + 1}{n}
 \]</span></p>
-<p>Where: - <em>n</em> is the number of observations. - <span class="math inline">\(p_{i}\)</span> is the value at position <em>i</em> in the sorted array.</p>
-<p>The modified Gini Index:</p>
+<p>Where <em>n</em> is the number of ecozones, and <span class="math inline">\(p_{i}\)</span> is the proportion of protected area within the <em>i</em> ecozone’s total area</p>
+
 </section>
 </section>
 <section id="the-data" class="level1">
 <h1>The data</h1>
 <p><img src="figures/map.png" class="img-fluid"></p>
+</section>
+<section id="example-of-phe-index-over-time" class="level1">
+<h1>Example of PHE Index over time</h1>
+<p><img src="figures/trend_example.png" class="img-fluid"></p>
 </section>
 
 </main>
