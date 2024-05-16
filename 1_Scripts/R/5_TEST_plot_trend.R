@@ -6,4 +6,4 @@ library(ggplot2)
 evenness_index <- c(0.1, 0.15, 0.223, 0.45, 0.455)
 years <- c(2016, 2017, 2018, 2019, 2020)
 plot_temporal_trend(evenness_index, years)
-
+ggsave(filename = "figures/trend_example.png", plot = last_plot())

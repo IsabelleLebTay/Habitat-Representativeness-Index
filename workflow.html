@@ -2,13 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.353">
+<meta name="generator" content="quarto-1.3.450">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Isabelle Lebeuf-Taylor, Vanessa Di Maurizio, Vincent Bellavance et Benjamin Mercier">
 
-<title>Habitat representativeness index</title>
+<title>The Protected Habitat Eveness (PHE)</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -34,7 +34,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="workflow_files/libs/bootstrap/bootstrap.min.js"></script>
 <link href="workflow_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="workflow_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
-<script src="workflow_files/libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+<script src="workflow_files/libs/htmlwidgets-1.6.3/htmlwidgets.js"></script>
 <script src="workflow_files/libs/d3-3.3.8/d3.min.js"></script>
 <script src="workflow_files/libs/dagre-0.4.0/dagre-d3.min.js"></script>
 <link href="workflow_files/libs/mermaid-0.3.0/dist/mermaid.css" rel="stylesheet">
@@ -43,6 +43,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="workflow_files/libs/chromatography-0.1/chromatography.js"></script>
 <script src="workflow_files/libs/DiagrammeR-binding-1.0.11/DiagrammeR.js"></script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
 
@@ -54,7 +56,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Habitat representativeness index</h1>
+<h1 class="title">The Protected Habitat Eveness (PHE)</h1>
 </div>
 
 
@@ -75,10 +77,10 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="biodiversity-indicator" class="level1">
-<h1>Biodiversity Indicator</h1>
-<p>Goal A: Ensure and enable that by 2030 at least 30 per cent of terrestrial and inland water areas, and of marine and coastal areas, especially areas of particular importance for biodiversity and ecosystem functions and services, are effectively conserved and managed through <strong>ecologically representative</strong>, well-connected and equitably governed systems of protected areas and other effective area-based conservation measures, recognizing indigenous and traditional territories, where applicable, and integrated into wider landscapes, seascapes and the ocean, while ensuring that any sustainable use, where appropriate in such areas, is fully consistent with conservation outcomes, recognizing and respecting the rights of indigenous peoples and local communities, including over their traditional territories.</p>
-<p>Target 3:</p>
+<section id="kumming-mtl-goal-and-target" class="level1">
+<h1>Kumming-Mtl Goal and target</h1>
+<p>Goal A: The integrity, connectivity and resilience of all ecosystems are maintained, enhanced, or restored, substantially increasing the area of natural ecosystems by 2050; Human induced extinction of known threatened species is halted, and, by 2050, the extinction rate and risk of all species are reduced tenfold and the abundance of native wild species is increased to healthy and resilient levels; The genetic diversity within populations of wild and domesticated species, is maintained, safeguarding their adaptive potential.</p>
+<p>Target 3: Ensure and enable that by 2030 at least 30 per cent of terrestrial and inland water areas, and of marine and coastal areas, especially areas of particular importance for biodiversity and ecosystem functions and services, are effectively conserved and managed through <strong>ecologically representative</strong>, well-connected and equitably governed systems of protected areas and other effective area-based conservation measures, recognizing indigenous and traditional territories, where applicable, and integrated into wider landscapes, seascapes and the ocean, while ensuring that any sustainable use, where appropriate in such areas, is fully consistent with conservation outcomes, recognizing and respecting the rights of indigenous peoples and local communities, including over their traditional territories.</p>
 </section>
 <section id="the-protected-habitat-eveness-phe" class="level1">
 <h1>The Protected Habitat Eveness (PHE)</h1>
@@ -87,21 +89,40 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="scale">Scale</h2>
 <p>National: We chose to evaluate the evenness across Canada ecozone given that each one are characterize by varying landscape and biodiveristy.</p>
 <p>Subnational: Bioclimatic domains of Qc. Province</p>
-<section id="workflow" class="level3">
-<h3 class="anchored" data-anchor-id="workflow">Workflow</h3>
+</section>
+<section id="workflow" class="level2">
+<h2 class="anchored" data-anchor-id="workflow">Workflow</h2>
 <p>Headline indicator: Protected Habitat Coverage (PHC) Complementary indicator: Protected Habitat Eveness / Protection d’Habitat égal (PHE)</p>
 <div class="cell">
 <div class="cell-output-display">
-<div class="DiagrammeR html-widget html-fill-item" id="htmlwidget-8726ff811b39acd92a41" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-8726ff811b39acd92a41">{"x":{"diagram":"\n  graph TB\n  \n  A[Data ecoregion] --> C[Joined data]\n  B[Data protected areas] --> C[Joined data]\n  C --> E[Compute PHC by ecoregions and type and ecoregions]\n  C --> F[Compute PHE across ecoregions and types ecoregions]\n  E --> G[Visualize MAP]\n  F --> H[Visualize Score 3 bins: low-intermediary-high]\n  "},"evals":[],"jsHooks":[]}</script>
+<div class="DiagrammeR html-widget html-fill-item" id="htmlwidget-77596dd9159e7e45dc26" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-77596dd9159e7e45dc26">{"x":{"diagram":"\n  graph TB\n  \n  A[Data ecoregion] --> C[Joined data]\n  B[Data protected areas] --> C[Joined data]\n  C --> E[Compute PHC by ecoregions and type and ecoregions]\n  C --> F[Compute PHE across ecoregions and types ecoregions]\n  E --> G[Visualize MAP]\n  F --> H[Visualize Score 3 bins: low-intermediary-high]\n  "},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section>
+<section id="method" class="level2">
+<h2 class="anchored" data-anchor-id="method">Method</h2>
+<p>To calculate the evenness calculator, we take the <em>inverse</em> of the Gini inequality index, which is a measure of the extent to which a quantity of interest (traditionally income per countries) are equal across geographical zone.</p>
+<p>Here, our quantity of interest are the size of protected areas, and the geographical units are ecozones. However, the geographical zone can be any ecologically and jurisdictionally interesting type, like ecoregion, or province.</p>
+<p>Here, we take the inverse of the Gini index, so that 0 maps to low evenness and 1 is a perfect evenness.</p>
+<p>We have also adapted the index so it accepts <em>proportions</em> of protected areas within geographical zones, since our ecozones are of different size. This ensures that one unit increase in proportion in one region has the same weight as a unit increase in another. This works toward our goal of mapping an even distribution of protected areas across ecozones.</p>
+<p>The Protected Habitat Evenness Index is calculated as:</p>
+<p><span class="math display">\[
+PHEI = 1 - G
+\]</span></p>
+<p><span class="math display">\[
+G = \frac{2 \sum_{i=1}^{n} i \cdot p_i}{n \sum_{i=1}^{n} p_i} - \frac{n + 1}{n}
+\]</span></p>
+<p>Where <em>n</em> is the number of ecozones, and <span class="math inline">\(p_{i}\)</span> is the proportion of protected area within the <em>i</em> ecozone’s total area</p>
 </section>
 </section>
 <section id="the-data" class="level1">
 <h1>The data</h1>
 <p><img src="figures/map.png" class="img-fluid"></p>
+</section>
+<section id="example-of-phe-index-over-time" class="level1">
+<h1>Example of PHE Index over time</h1>
+<p><img src="figures/trend_example.png" class="img-fluid"></p>
 </section>
 
 </main>
