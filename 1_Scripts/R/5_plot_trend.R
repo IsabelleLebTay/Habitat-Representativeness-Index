@@ -10,9 +10,6 @@
 #' plot_temporal_trend(evenness_index, years)
 #' 
 
-install.packages("ggplot2")
-library(ggplot2)
-
 plot_temporal_trend <- function(evenness_index, years) {
   # Check that the lengths of the inputs are equal
   if (length(evenness_index) != length(years)) {
@@ -42,9 +39,3 @@ plot_temporal_trend <- function(evenness_index, years) {
   # Print the plot
   print(p)
 }
-
-# Example usage
-evenness_index <- c(0.1, 0.15, 0.223, 0.45, 0.455)
-years <- c(2016, 2017, 2018, 2019, 2020)
-plot_temporal_trend(evenness_index, years)
-
