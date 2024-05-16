@@ -19,6 +19,22 @@ dl_ecozones <- function(filename = import_config()$ecozones_zipfile,
 
 }
 
+dl_bioclim_data <- function(filename = import_config()$ecozones_zipfile,
+                            datadir = import_config()$raw_data_path) {
+  
+  # Download the ecozone data
+  # Specify the URL of the file you want to download
+  url <- "https://diffusion.mffp.gouv.qc.ca/Diffusion/DonneeGratuite/Foret/DONNEES_FOR_ECO_SUD/Classification_ecologique/CLASSI_ECO_QC_GDB.zip"
+  
+  # Create directory if it doesn't exist
+  chk_dir(datadir)
+  # Call the download.file() function, passing in the URL and file name/location as arguments
+  download.file(url, sprintf("%s/%s.zip", tempdir(), filename), mode = "wb")
+  
+  # Unzip the folder
+  unzip(sprintf("%s/%s.zip", tempdir(), filename), exdir = here::here(datadir))
+  
+}
 
 #' Download and extract protected areas 
 #' 

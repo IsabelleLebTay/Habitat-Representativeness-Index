@@ -14,10 +14,20 @@ protected_zipfile: protected
 protected_data: AireProtegeeConservee_2023.gdb
 protected_layer: AireProtegeeConservee_2023
 
+
 # Quebec bioclimatic
 qc_bioclimatic_data_path: qc_bioclimatique
 qc_bioclimatic_zipfile: qc_bioclimatic
 qc_bioclimatic_data: qc_bioclimatic.gdb
+
+
+##### OUTPUT #####
+
+output_path: output
+
+# Proportion computed
+proportion_df: proportion_protected.csv
+
 
 ##### SPATIAL #####
 crs: "ESRI:102001"
