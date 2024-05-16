@@ -1,5 +1,8 @@
 library(sf)
 
+get_ecozone <- function() {
+    # @param NONE
+    # @return Filename
 # Specify the URL of the file you want to download
 url <- "https://sis.agr.gc.ca/cansis/nsdb/ecostrat/zone/ecozone_shp.zip"
 
@@ -9,4 +12,6 @@ file_path <- "0_Data/"
 
 # Call the download.file() function, passing in the URL and file name/location as arguments
 download.file(url, paste(file_path, file_name, sep = ""), mode = "wb")
+return(file_name)
+}
 
