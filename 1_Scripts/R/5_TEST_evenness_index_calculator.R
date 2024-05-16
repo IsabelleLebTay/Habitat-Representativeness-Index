@@ -26,6 +26,4 @@ total_areas_real <- current_data$total_area
 protected_areas_real <- current_data$protected_area
 indicator_value_real <- evenness_indicator(total_areas_real, protected_areas_real)
 print("Results with 2023 data:")
-print(paste("Total Areas of Ecoregions:", paste(total_areas_real, collapse = ", ")))
-print(paste("Protected Areas within Ecoregions:", paste(protected_areas_real, collapse = ", ")))
 print(paste("Biodiversity 30x30 Target 3 Indicator:", indicator_value_real))
