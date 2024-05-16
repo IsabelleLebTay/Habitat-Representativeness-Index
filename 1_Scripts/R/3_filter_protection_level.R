@@ -1,4 +1,10 @@
-# Filter---
+# Filter the protection areas by their level
+# This function filters the the protected areas by their IUCN_CAT value, which have 9 possible values.
+# They are:
+
+
+
+
 filter_protection_level <- function(dataframe, protection_level) {
   
   # Summarises the protected area by supplied amount
