@@ -10,7 +10,7 @@ output:
     incremental: true   
 ---
 
-```{r, eval = FALSE}
+```{r eval=FALSE, echo=FALSE}
 # Download the ecozone data
 # Specify the URL of the file you want to download
 url <- "https://sis.agr.gc.ca/cansis/nsdb/ecostrat/zone/ecozone_shp.zip"
@@ -40,7 +40,7 @@ download.file(url, paste(file_path, file_name, sep = ""), mode = "wb")
 unzip(paste0(file_path, file_name), exdir = "0_Data")
 ```
 
-```{r, eval = FALSE}
+```{r eval=FALSE, echo=FALSE}
 library(sf)
 library(ggplot2)
 
@@ -51,7 +51,7 @@ sf::st_layers("0_Data/AireProtegeeConservee_2023/AireProtegeeConservee_2023.gdb"
 sf::st_layers("0_Data/Ecozones/ecozones.shp")
 
 # Read the layers and normalize crs with the Canada map
-protected_area <- sf::st_read("0_Data/AireProtegeeConservee_2023/AireProtegeeConservee_2023.gdb", "AireProtegeeConservee_2023")
+protected_area <- sf::st_read("0_Data/AireProtegeeConservee_2023/AireProtegeeConservee_2023.gdb", layer = "AireProtegeeConservee_2023")
 ecozones <- sf::st_read("0_Data/Ecozones/ecozones.shp", layer = "ecozones") |>
   sf::st_transform(crs = sf::st_crs(protected_area))
 
@@ -86,8 +86,7 @@ ggsave("figures/map.png", plot = map, dpi = "retina", height = 18, width = 18, u
 Headline indicator: Protected Habitat Coverage (PHC)
 Complementary indicator: Protected Habitat Eveness / Protection d'Habitat égal (PHE)
 
-```{r}
-# install.packages('DiagrammeR')
+```{r echo=FALSE}
 library(DiagrammeR)
 
 DiagrammeR(
@@ -104,3 +103,6 @@ DiagrammeR(
 )
 ```
 
+
+# The data
+![](figures/map.png)
