@@ -2,7 +2,7 @@
 #'
 #' @return
 
-dl_ecozones <- function(filename = import_config()$ecozones_data,
+read_ecozones <- function(filename = import_config()$ecozones_data,
                         datadir = sprintf("%s/%s",
                                           import_config()$raw_data_pat,
                                           import_config()$ecozones_data_path),
@@ -10,9 +10,7 @@ dl_ecozones <- function(filename = import_config()$ecozones_data,
 
   dat <- sf::st_read(here::here(sprintf("%s/%s", datadir, filename)))
 
-  if(sf::st_crs(dat) != sf::st_crs(crs)) {
-    dat <- sf::st_transform(dat, crs)
-  }
+  dat <- chk_crs(dat)
 
   return(dat)
 
@@ -23,7 +21,7 @@ dl_ecozones <- function(filename = import_config()$ecozones_data,
 #' 
 #' @export
 
-dl_protected_areas <- function(filename = import_config()$protected_data,
+read_protected_areas <- function(filename = import_config()$protected_data,
                                datadir = sprintf("%s/%s",
                                                  import_config()$raw_data_pat,
                                                  import_config()$protected_data_path),
@@ -35,10 +33,8 @@ dl_protected_areas <- function(filename = import_config()$protected_data,
     layer = layer
   )
 
-  if(sf::st_crs(dat) != sf::st_crs(crs)) {
-    dat <- sf::st_transform(dat, crs)
-  }
-
+  dat <- chk_crs(dat)
+  
   return(dat)
 
 }
