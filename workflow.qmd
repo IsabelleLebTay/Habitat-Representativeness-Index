@@ -64,8 +64,7 @@ DiagrammeR(
   C --> E[Compute PHC by ecoregions and type and ecoregions]
   C --> F[Compute PHE across ecoregions and types ecoregions]
   E --> G[Visualize MAP]
-  F --> H[Discretize into 3 bins: low-intermediary-high]
-  H --> I[Visualize Score]
+  F --> H[Visualize Score 3 bins: low-intermediary-high]
   "
 )
 ```
