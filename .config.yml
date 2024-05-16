@@ -1,0 +1,21 @@
+##### RAW DATA #####
+
+# Raw data path
+raw_data_path: 0_Data
+
+# Ecozones
+ecozones_data_path: Ecozones
+ecozones_zipfile: ecozones
+ecozones_data: ecozones.shp
+
+# Protected areas
+protected_data_path: AireProtegeeConservee_2023
+protected_zipfile: protected
+protected_data: AireProtegeeConservee_2023.gdb
+protected_layer: AireProtegeeConservee_2023
+
+
+
+
+##### SPATIAL #####
+crs: "ESRI:102001"
