@@ -1,0 +1,138 @@
+---
+title: "The Protected Habitat Eveness (PHE)"
+author: "Isabelle Lebeuf-Taylor, Vanessa Di Maurizio, Vincent Bellavance et Benjamin Mercier"
+documentclass: book
+output:
+  html_document:
+    toc: true
+    number_sections: true
+  revealjs_presentation:
+    incremental: true   
+---
+
+# Kumming-Mtl Goal and target
+
+Goal A: The integrity, connectivity and resilience of all ecosystems are maintained, enhanced, or restored, substantially increasing the area of natural ecosystems by 2050; Human induced extinction of known threatened species is halted, and, by 2050, the extinction rate and risk of all species are reduced tenfold and the abundance of native wild species is increased to healthy and resilient levels; The genetic diversity within populations of wild and domesticated species, is maintained, safeguarding their adaptive potential.
+
+Target 3:  Ensure and enable that by 2030 at least 30 per cent of terrestrial and inland water areas, and of marine and coastal areas, especially areas of particular importance for biodiversity and ecosystem functions and services, are effectively conserved and managed through **ecologically representative**, well-connected and equitably governed systems of protected areas and other effective area-based conservation measures, recognizing indigenous and traditional territories, where applicable, and integrated into wider landscapes, seascapes and the ocean, while ensuring that any sustainable use, where appropriate in such areas, is fully consistent with conservation outcomes, recognizing and respecting the rights of indigenous peoples and local communities, including over their traditional territories.
+
+# The Protected Habitat Eveness (PHE)
+
+We developed an indicator that is complementary to the Coverage of protected areas and other effective area-based conservation measures. Our measure address the second part of the target 3 which state that the 30X30 target needs to protect areas that are ecologically reprensentative for biodiversity by considering that varying ecological zone, and corresponding biodiversity, should be equally presented in the 30x30 target.
+
+## Scale
+National: We chose to evaluate the evenness across Canada ecozone given that each one are characterize by varying landscape and biodiveristy.
+
+Subnational: Bioclimatic domains of Qc. Province
+
+```{r eval=FALSE, echo=FALSE}
+# Download the ecozone data
+# Specify the URL of the file you want to download
+url <- "https://sis.agr.gc.ca/cansis/nsdb/ecostrat/zone/ecozone_shp.zip"
+
+# Specify the file name and location where you want to save the file on your computer
+file_name <- "ecozone_shp.zip"
+file_path <- "0_Data/"
+
+# Call the download.file() function, passing in the URL and file name/location as arguments
+download.file(url, paste(file_path, file_name, sep = ""), mode = "wb")
+
+# Unzip the folder
+unzip(paste0(file_path, file_name), exdir = "0_Data")
+
+# Download the protected areas data
+# Specify the URL of the file you want to download
+url <- "https://data-donnees.az.ec.gc.ca/api/file?path=/species%2Fprotectrestore%2Fcanadian-protected-conserved-areas-database%2FDatabases%2FAireProtegeeConservee_2023.zip"
+
+# Specify the file name and location where you want to save the file on your computer
+file_name <- "protected_shp.zip"
+file_path <- "0_Data/"
+
+# Call the download.file() function, passing in the URL and file name/location as arguments
+download.file(url, paste(file_path, file_name, sep = ""), mode = "wb")
+
+# Unzip the folder
+unzip(paste0(file_path, file_name), exdir = "0_Data")
+```
+
+```{r eval=FALSE, echo=FALSE}
+library(sf)
+library(ggplot2)
+
+#canada_provinces <- rnaturalearth::ne_states(country = "canada", returnclass = "sf")
+
+# Check available layers for portected areas and ecozones
+sf::st_layers("0_Data/AireProtegeeConservee_2023/AireProtegeeConservee_2023.gdb")
+sf::st_layers("0_Data/Ecozones/ecozones.shp")
+
+# Read the layers and normalize crs with the Canada map
+protected_area <- sf::st_read("0_Data/AireProtegeeConservee_2023/AireProtegeeConservee_2023.gdb", layer = "AireProtegeeConservee_2023")
+ecozones <- sf::st_read("0_Data/Ecozones/ecozones.shp", layer = "ecozones") |>
+  sf::st_transform(crs = sf::st_crs(protected_area))
+
+# Get world map with provinces
+#world <- rnaturalearth::ne_countries(scale = "medium", returnclass = "sf")
+#canada <- world[world$name == "Canada", ] |>
+#  sf::st_transform(sf::st_crs(protected_area))
+
+# Set custom colors for the ecozones
+custom_colors <- c("Northern Arctic" = "lightskyblue", "Arctic Cordillera" = "royalblue", "Southern Arctic" = "royalblue4", "Taiga Cordillera" = "lavenderblush3", "Taiga Plain" = "khaki4", "Taiga Shield" = "orangered4", "Boreal Cordillera" = "darkolivegreen", "Boreal PLain" = "darkgreen", "Pacific Maritime" = "turquoise3", "Boreal Shield" = "coral2", "Hudson Plain" = "lightsalmon3", "Montane Cordillera" = "gold3", "Prairie" = "orange", "Atlantic Maritime" = "midnightblue", "MixedWood Plain" = "springgreen")
+
+# Plot
+map <- ggplot() +
+  #geom_sf(data = canada, fill = "white", color = "grey") +
+  geom_sf(data = ecozones, aes(fill = as.factor(ZONE_NAME)), alpha = 0.5) +
+  scale_fill_manual(values = custom_colors) +
+  geom_sf(data = protected_area, aes(fill = as.factor(IUCN_CAT)), alpha = 0.2) +
+  theme_minimal()+
+  theme(
+       legend.position = "bottom",
+       legend.text = element_text(size = 8),
+       legend.title = element_text(size = 10),
+       plot.title = element_text(size = 15)
+      ) +
+  labs(fill = "Ecozones")
+
+ggsave("figures/map.png", plot = map, dpi = "retina", height = 18, width = 18, units = "cm", bg = "white")
+```
+
+## Workflow
+
+Headline indicator: Protected Habitat Coverage (PHC)
+Complementary indicator: Protected Habitat Eveness / Protection d'Habitat égal (PHE)
+
+```{r echo=FALSE}
+library(DiagrammeR)
+
+DiagrammeR(
+  "
+  graph TB
+  
+  A[Data ecoregion] --> C[Joined data]
+  B[Data protected areas] --> C[Joined data]
+  C --> E[Compute PHC by ecoregions and type and ecoregions]
+  C --> F[Compute PHE across ecoregions and types ecoregions]
+  E --> G[Visualize MAP]
+  F --> H[Visualize Score 3 bins: low-intermediary-high]
+  "
+)
+```
+
+
+## Method
+
+The index is based on Gini index is calculated using the following formula:
+
+$$
+G = \frac{2 \sum_{i=1}^{n} i \cdot p_i}{n \sum_{i=1}^{n} p_i} - \frac{n + 1}{n}
+$$
+
+Where:
+- *n* is the number of observations.
+- $p_{i}$ is the value at position *i* in the sorted array.
+
+
+The modified Gini Index: 
+
+# The data
+![](figures/map.png)
