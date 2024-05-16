@@ -1,9 +1,9 @@
-#' Plot evenness trend in time
+#' Plot evenness trend in time. Function accepts 
 #' @param
 #'
 #' @return plots
 
 plot_temporal_trend -> function() {
 
-    
+
 }
