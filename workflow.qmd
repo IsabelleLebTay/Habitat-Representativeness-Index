@@ -40,13 +40,10 @@ download.file(url, paste(file_path, file_name, sep = ""), mode = "wb")
 unzip(paste0(file_path, file_name), exdir = "0_Data")
 ```
 
-```{r}
+```{r, eval = FALSE}
 library(sf)
 library(ggplot2)
 
-# Get world map with provinces
-#world <- rnaturalearth::ne_countries(scale = "medium", returnclass = "sf")
-#canada <- world[world$name == "Canada", ]
 #canada_provinces <- rnaturalearth::ne_states(country = "canada", returnclass = "sf")
 
 # Check available layers for portected areas and ecozones
@@ -58,13 +55,30 @@ protected_area <- sf::st_read("0_Data/AireProtegeeConservee_2023/AireProtegeeCon
 ecozones <- sf::st_read("0_Data/Ecozones/ecozones.shp", layer = "ecozones") |>
   sf::st_transform(crs = sf::st_crs(protected_area))
 
+# Get world map with provinces
+#world <- rnaturalearth::ne_countries(scale = "medium", returnclass = "sf")
+#canada <- world[world$name == "Canada", ] |>
+#  sf::st_transform(sf::st_crs(protected_area))
+
+# Set custom colors for the ecozones
+custom_colors <- c("Northern Arctic" = "lightskyblue", "Arctic Cordillera" = "royalblue", "Southern Arctic" = "royalblue4", "Taiga Cordillera" = "lavenderblush3", "Taiga Plain" = "khaki4", "Taiga Shield" = "orangered4", "Boreal Cordillera" = "darkolivegreen", "Boreal PLain" = "darkgreen", "Pacific Maritime" = "turquoise3", "Boreal Shield" = "coral2", "Hudson Plain" = "lightsalmon3", "Montane Cordillera" = "gold3", "Prairie" = "orange", "Atlantic Maritime" = "midnightblue", "MixedWood Plain" = "springgreen")
 
 # Plot
-ggplot() +
+map <- ggplot() +
+  #geom_sf(data = canada, fill = "white", color = "grey") +
   geom_sf(data = ecozones, aes(fill = as.factor(ZONE_NAME)), alpha = 0.5) +
-  #geom_sf(data = protected_area, aes(fill = as.factor(IUCN_CAT)), alpha = 0.2) +
-  scale_fill_manual(values = viridis::viridis(nrow(ecozones), option = "D")) +
-  theme_minimal()
+  scale_fill_manual(values = custom_colors) +
+  geom_sf(data = protected_area, aes(fill = as.factor(IUCN_CAT)), alpha = 0.2) +
+  theme_minimal()+
+  theme(
+       legend.position = "bottom",
+       legend.text = element_text(size = 8),
+       legend.title = element_text(size = 10),
+       plot.title = element_text(size = 15)
+      ) +
+  labs(fill = "Ecozones")
+
+ggsave("figures/map.png", plot = map, dpi = "retina", height = 18, width = 18, units = "cm", bg = "white")
 ```
 
 ### Workflow
