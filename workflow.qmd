@@ -1,5 +1,5 @@
 ---
-title: "Habitat representativeness index"
+title: "The Protected Habitat Eveness (PHE)"
 author: "Isabelle Lebeuf-Taylor, Vanessa Di Maurizio, Vincent Bellavance et Benjamin Mercier"
 documentclass: book
 output:
@@ -10,11 +10,11 @@ output:
     incremental: true   
 ---
 
-# Biodiversity Indicator
+# Kumming-Mtl Goal and target
 
-Goal A: Ensure and enable that by 2030 at least 30 per cent of terrestrial and inland water areas, and of marine and coastal areas, especially areas of particular importance for biodiversity and ecosystem functions and services, are effectively conserved and managed through **ecologically representative**, well-connected and equitably governed systems of protected areas and other effective area-based conservation measures, recognizing indigenous and traditional territories, where applicable, and integrated into wider landscapes, seascapes and the ocean, while ensuring that any sustainable use, where appropriate in such areas, is fully consistent with conservation outcomes, recognizing and respecting the rights of indigenous peoples and local communities, including over their traditional territories.
+Goal A: The integrity, connectivity and resilience of all ecosystems are maintained, enhanced, or restored, substantially increasing the area of natural ecosystems by 2050; Human induced extinction of known threatened species is halted, and, by 2050, the extinction rate and risk of all species are reduced tenfold and the abundance of native wild species is increased to healthy and resilient levels; The genetic diversity within populations of wild and domesticated species, is maintained, safeguarding their adaptive potential.
 
-Target 3: 
+Target 3:  Ensure and enable that by 2030 at least 30 per cent of terrestrial and inland water areas, and of marine and coastal areas, especially areas of particular importance for biodiversity and ecosystem functions and services, are effectively conserved and managed through **ecologically representative**, well-connected and equitably governed systems of protected areas and other effective area-based conservation measures, recognizing indigenous and traditional territories, where applicable, and integrated into wider landscapes, seascapes and the ocean, while ensuring that any sustainable use, where appropriate in such areas, is fully consistent with conservation outcomes, recognizing and respecting the rights of indigenous peoples and local communities, including over their traditional territories.
 
 # The Protected Habitat Eveness (PHE)
 
