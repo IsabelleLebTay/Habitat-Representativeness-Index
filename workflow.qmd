@@ -50,12 +50,8 @@ III | KBA ?
 
 
 ```{r eval=FALSE, echo=FALSE}
-# Download the ecozone data
-# Specify the URL of the file you want to download
-url <- "https://sis.agr.gc.ca/cansis/nsdb/ecostrat/zone/ecozone_shp.zip"
 
 
-```{r canada_map, eval=FALSE, echo=FALSE}
 library(sf)
 library(ggplot2)
 
@@ -123,16 +119,11 @@ map_quebec <- ggplot() +
 ggsave("figures/quebec_map.png", plot = map_quebec, dpi = "retina", height = 18, width = 21, units = "cm", bg = "white")
 ```
 
-
-
-
-
-
 ## Workflow
 
+Headline indicator: Protected Habitat Coverage (PHC).
 
-Headline indicator: Protected Habitat Coverage (PHC)
-Complementary indicator: Protected Habitat Eveness / Protection d'Habitat égal (PHE)
+Complementary indicator: Protected Habitat Eveness / Protection d'Habitat égal (PHE).
 
 ```{r echo=FALSE}
 library(DiagrammeR)
@@ -152,9 +143,11 @@ DiagrammeR(
 ```
 
 
-
+## The data
 
 ![](figures/map.png)
+
+![](figures/quebec_map.png)
 
 ## Method
 
@@ -170,6 +163,7 @@ The Protected Habitat Evenness Index is calculated as:
 $$
 PHEI = 1 - G
 $$
+
 
 $$
 G = 1 - \frac{2 \sum_{i=1}^{n} i \cdot p_i}{n \sum_{i=1}^{n} p_i} - \frac{n + 1}{n}
