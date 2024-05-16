@@ -10,62 +10,26 @@ output:
     incremental: true   
 ---
 
-```{r eval=FALSE, echo=FALSE}
-# Download the ecozone data
-# Specify the URL of the file you want to download
-url <- "https://sis.agr.gc.ca/cansis/nsdb/ecostrat/zone/ecozone_shp.zip"
 
-# Specify the file name and location where you want to save the file on your computer
-file_name <- "ecozone_shp.zip"
-file_path <- "0_Data/"
-
-# Call the download.file() function, passing in the URL and file name/location as arguments
-download.file(url, paste(file_path, file_name, sep = ""), mode = "wb")
-
-# Unzip the folder
-unzip(paste0(file_path, file_name), exdir = "0_Data")
-
-# Download the protected areas data
-# Specify the URL of the file you want to download
-url <- "https://data-donnees.az.ec.gc.ca/api/file?path=/species%2Fprotectrestore%2Fcanadian-protected-conserved-areas-database%2FDatabases%2FAireProtegeeConservee_2023.zip"
-
-# Specify the file name and location where you want to save the file on your computer
-file_name <- "protected_shp.zip"
-file_path <- "0_Data/"
-
-# Call the download.file() function, passing in the URL and file name/location as arguments
-download.file(url, paste(file_path, file_name, sep = ""), mode = "wb")
-
-# Unzip the folder
-unzip(paste0(file_path, file_name), exdir = "0_Data")
-```
-
-```{r eval=FALSE, echo=FALSE}
+```{r canada_map eval=FALSE, echo=FALSE}
 library(sf)
 library(ggplot2)
 
-#canada_provinces <- rnaturalearth::ne_states(country = "canada", returnclass = "sf")
-
+# CANADA
 # Check available layers for portected areas and ecozones
 sf::st_layers("0_Data/AireProtegeeConservee_2023/AireProtegeeConservee_2023.gdb")
 sf::st_layers("0_Data/Ecozones/ecozones.shp")
 
-# Read the layers and normalize crs with the Canada map
+# Read the layers and normalize crs with the protected areas map
 protected_area <- sf::st_read("0_Data/AireProtegeeConservee_2023/AireProtegeeConservee_2023.gdb", layer = "AireProtegeeConservee_2023")
 ecozones <- sf::st_read("0_Data/Ecozones/ecozones.shp", layer = "ecozones") |>
   sf::st_transform(crs = sf::st_crs(protected_area))
-
-# Get world map with provinces
-#world <- rnaturalearth::ne_countries(scale = "medium", returnclass = "sf")
-#canada <- world[world$name == "Canada", ] |>
-#  sf::st_transform(sf::st_crs(protected_area))
 
 # Set custom colors for the ecozones
 custom_colors <- c("Northern Arctic" = "lightskyblue", "Arctic Cordillera" = "royalblue", "Southern Arctic" = "royalblue4", "Taiga Cordillera" = "lavenderblush3", "Taiga Plain" = "khaki4", "Taiga Shield" = "orangered4", "Boreal Cordillera" = "darkolivegreen", "Boreal PLain" = "darkgreen", "Pacific Maritime" = "turquoise3", "Boreal Shield" = "coral2", "Hudson Plain" = "lightsalmon3", "Montane Cordillera" = "gold3", "Prairie" = "orange", "Atlantic Maritime" = "midnightblue", "MixedWood Plain" = "springgreen")
 
 # Plot
 map <- ggplot() +
-  #geom_sf(data = canada, fill = "white", color = "grey") +
   geom_sf(data = ecozones, aes(fill = as.factor(ZONE_NAME)), alpha = 0.5) +
   scale_fill_manual(values = custom_colors) +
   geom_sf(data = protected_area, aes(fill = as.factor(IUCN_CAT)), alpha = 0.2) +
@@ -79,7 +43,43 @@ map <- ggplot() +
   labs(fill = "Ecozones")
 
 ggsave("figures/map.png", plot = map, dpi = "retina", height = 18, width = 18, units = "cm", bg = "white")
+
+
+# QUEBEC
+# Check available layers for portected areas and ecozones
+sf::st_layers("0_Data/CLASSI_ECO_QC_GDB/CLASSI_ECO_QC.gdb")
+
+# Read the layers and normalize crs with the protected areas map
+qc_bioclimatic <- sf::st_read("0_Data/CLASSI_ECO_QC_GDB/CLASSI_ECO_QC.gdb", layer = "N3_DOM_BIO") |>
+  sf::st_transform(crs = sf::st_crs(protected_area))
+
+# Get the map of Quebec
+quebec_map <- rnaturalearth::ne_states(country = "canada", returnclass = "sf") |>
+  dplyr::filter(name_en == "Quebec") |>
+  sf::st_transform(st_crs(protected_area))
+
+protected_area <- sf::st_cast(protected_area, "MULTIPOLYGON")
+quebec_protected_area <- st_intersection(protected_area, quebec_map)
+
+custom_colors_qc <- c("Érablière à caryer cordiforme" = "lightpink1", "Érablière à tilleul" = "tan2", "Érablière à bouleau jaune" = "tomato3", "Sapinière à bouleau jaune" = "yellow3", "Sapinière à bouleau à papier" = "khaki3", "Pessière à mousses" = "springgreen4","Pessière à lichens" = "darkolivegreen", "Toundra forestière" = "cadetblue1", "Toundra à arbustes dressés" = "slategray", "Toundra à arbustes prostrés" = "snow3")
+
+map_quebec <- ggplot() +
+  geom_sf(data = quebec_map, fill = "white", color = "black") +
+  geom_sf(data = qc_bioclimatic, aes(fill = as.factor(NOM_DB)), alpha = 0.5) +
+  scale_fill_manual(values = custom_colors_qc) +
+  geom_sf(data = quebec_protected_area, aes(fill = as.factor(IUCN_CAT)), alpha = 0.2) +
+  theme_minimal()+
+  theme(
+       legend.position = "bottom",
+       legend.text = element_text(size = 6),
+       legend.title = element_text(size = 7)
+      ) +
+  labs(fill = "Bioclimatic domains")
+
+ggsave("figures/quebec_map.png", plot = map_quebec, dpi = "retina", height = 18, width = 21, units = "cm", bg = "white")
 ```
+
+
 
 ### Workflow
 
@@ -104,5 +104,5 @@ DiagrammeR(
 ```
 
 
-# The data
+
 ![](figures/map.png)
