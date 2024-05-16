@@ -10,6 +10,21 @@ output:
     incremental: true   
 ---
 
+# Biodiversity Indicator
+
+Goal A: Ensure and enable that by 2030 at least 30 per cent of terrestrial and inland water areas, and of marine and coastal areas, especially areas of particular importance for biodiversity and ecosystem functions and services, are effectively conserved and managed through **ecologically representative**, well-connected and equitably governed systems of protected areas and other effective area-based conservation measures, recognizing indigenous and traditional territories, where applicable, and integrated into wider landscapes, seascapes and the ocean, while ensuring that any sustainable use, where appropriate in such areas, is fully consistent with conservation outcomes, recognizing and respecting the rights of indigenous peoples and local communities, including over their traditional territories.
+
+Target 3: 
+
+# The Protected Habitat Eveness (PHE)
+
+We developed an indicator that is complementary to the Coverage of protected areas and other effective area-based conservation measures. Our measure address the second part of the target 3 which state that the 30X30 target needs to protect areas that are ecologically reprensentative for biodiversity by considering that varying ecological zone, and corresponding biodiversity, should be equally presented in the 30x30 target.
+
+## Scale
+National: We chose to evaluate the evenness across Canada ecozone given that each one are characterize by varying landscape and biodiveristy.
+
+Subnational: Bioclimatic domains of Qc. Province
+
 ```{r eval=FALSE, echo=FALSE}
 # Download the ecozone data
 # Specify the URL of the file you want to download
