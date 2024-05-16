@@ -10,7 +10,7 @@ output:
     incremental: true   
 ---
 
-```{r}
+```{r, eval = FALSE}
 # Download the ecozone data
 # Specify the URL of the file you want to download
 url <- "https://sis.agr.gc.ca/cansis/nsdb/ecostrat/zone/ecozone_shp.zip"
@@ -42,6 +42,51 @@ unzip(paste0(file_path, file_name), exdir = "0_Data")
 
 ```{r}
 library(sf)
+library(ggplot2)
 
+# Get world map with provinces
+#world <- rnaturalearth::ne_countries(scale = "medium", returnclass = "sf")
+#canada <- world[world$name == "Canada", ]
+#canada_provinces <- rnaturalearth::ne_states(country = "canada", returnclass = "sf")
+
+# Check available layers for portected areas and ecozones
 sf::st_layers("0_Data/AireProtegeeConservee_2023/AireProtegeeConservee_2023.gdb")
+sf::st_layers("0_Data/Ecozones/ecozones.shp")
+
+# Read the layers and normalize crs with the Canada map
+protected_area <- sf::st_read("0_Data/AireProtegeeConservee_2023/AireProtegeeConservee_2023.gdb", "AireProtegeeConservee_2023")
+ecozones <- sf::st_read("0_Data/Ecozones/ecozones.shp", layer = "ecozones") |>
+  sf::st_transform(crs = sf::st_crs(protected_area))
+
+
+# Plot
+ggplot() +
+  geom_sf(data = ecozones, aes(fill = as.factor(ZONE_NAME)), alpha = 0.5) +
+  #geom_sf(data = protected_area, aes(fill = as.factor(IUCN_CAT)), alpha = 0.2) +
+  scale_fill_manual(values = viridis::viridis(nrow(ecozones), option = "D")) +
+  theme_minimal()
 ```
+
+### Workflow
+
+Headline indicator: Protected Habitat Coverage (PHC)
+Complementary indicator: Protected Habitat Eveness / Protection d'Habitat égal (PHE)
+
+```{r}
+# install.packages('DiagrammeR')
+library(DiagrammeR)
+
+DiagrammeR(
+  "
+  graph TB
+  
+  A[Data ecoregion] --> C[Joined data]
+  B[Data protected areas] --> C[Joined data]
+  C --> E[Compute PHC by ecoregions and type and ecoregions]
+  C --> F[Compute PHE across ecoregions and types ecoregions]
+  E --> G[Visualize MAP]
+  F --> H[Visualize Score 3 bins: low-intermediary-high]
+  "
+)
+```
+
