@@ -95,13 +95,16 @@ ul.task-list li input[type="checkbox"] {
 <p>Headline indicator: Protected Habitat Coverage (PHC) Complementary indicator: Protected Habitat Eveness / Protection d’Habitat égal (PHE)</p>
 <div class="cell">
 <div class="cell-output-display">
+
 <div class="DiagrammeR html-widget html-fill-item" id="htmlwidget-77596dd9159e7e45dc26" style="width:100%;height:464px;"></div>
 <script type="application/json" data-for="htmlwidget-77596dd9159e7e45dc26">{"x":{"diagram":"\n  graph TB\n  \n  A[Data ecoregion] --> C[Joined data]\n  B[Data protected areas] --> C[Joined data]\n  C --> E[Compute PHC by ecoregions and type and ecoregions]\n  C --> F[Compute PHE across ecoregions and types ecoregions]\n  E --> G[Visualize MAP]\n  F --> H[Visualize Score 3 bins: low-intermediary-high]\n  "},"evals":[],"jsHooks":[]}</script>
+
 </div>
 </div>
 </section>
 <section id="method" class="level2">
 <h2 class="anchored" data-anchor-id="method">Method</h2>
+
 <p>To calculate the evenness calculator, we take the <em>inverse</em> of the Gini inequality index, which is a measure of the extent to which a quantity of interest (traditionally income per countries) are equal across geographical zone.</p>
 <p>Here, our quantity of interest are the size of protected areas, and the geographical units are ecozones. However, the geographical zone can be any ecologically and jurisdictionally interesting type, like ecoregion, or province.</p>
 <p>Here, we take the inverse of the Gini index, so that 0 maps to low evenness and 1 is a perfect evenness.</p>
@@ -114,6 +117,7 @@ PHEI = 1 - G
 G = \frac{2 \sum_{i=1}^{n} i \cdot p_i}{n \sum_{i=1}^{n} p_i} - \frac{n + 1}{n}
 \]</span></p>
 <p>Where <em>n</em> is the number of ecozones, and <span class="math inline">\(p_{i}\)</span> is the proportion of protected area within the <em>i</em> ecozone’s total area</p>
+
 </section>
 </section>
 <section id="the-data" class="level1">
