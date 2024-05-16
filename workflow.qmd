@@ -50,6 +50,8 @@ III | KBA ?
 
 
 ```{r eval=FALSE, echo=FALSE}
+
+
 library(sf)
 library(ggplot2)
 
@@ -173,12 +175,6 @@ $p_{i}$ is the proportion of protected area within the *i* ecozone's total area
 
 
 **Interpretation:** Here, we take the inverse of the Gini index, so that 0 maps to low evenness and 1 is a perfect evenness.
-
-
-
-
-# The data
-![](figures/map.png)
 
 
 # Example of PHE Index over time
