@@ -1,13 +1,13 @@
 gini_index <- function(p) {
-  """
-  Calculate the Gini index for a given distribution.
+  # """
+  # Calculate the Gini index for a given distribution.
   
-  Parameters:
-  p (array): Array representing the distribution proportions.
+  # Parameters:
+  # p (array): Array representing the distribution proportions.
   
-  Returns:
-  float: Gini index.
-  """
+  # Returns:
+  # float: Gini index.
+  # """
   # Calculate the Gini index for a given distribution.
   
   n <- length(p)  # Number of elements in the array p
@@ -22,16 +22,16 @@ gini_index <- function(p) {
 }
 
 calculate_evenness_indicator <- function(A, P) {
-  """
-  Calculate the biodiversity 30x30 target 3 indicator using the Gini index.
+  # """
+  # Calculate the biodiversity 30x30 target 3 indicator using the Gini index.
   
-  Parameters:
-  A (array): Total area of each ecoregion.
-  P (array): Protected area within each ecoregion.
+  # Parameters:
+  # A (array): Total area of each ecoregion.
+  # P (array): Protected area within each ecoregion.
   
-  Returns:
-  float: Indicator value bounded between 0 and 1.
-  """  
+  # Returns:
+  # float: Indicator value bounded between 0 and 1.
+  # """  
   # Calculate the proportion of protected area relative to total area for each ecoregion
   p_per_area <- P / A
   
