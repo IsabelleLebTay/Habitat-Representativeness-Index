@@ -96,7 +96,7 @@ map <- ggplot() +
 ggsave("figures/map.png", plot = map, dpi = "retina", height = 18, width = 18, units = "cm", bg = "white")
 ```
 
-### Workflow
+## Workflow
 
 Headline indicator: Protected Habitat Coverage (PHC)
 Complementary indicator: Protected Habitat Eveness / Protection d'Habitat égal (PHE)
@@ -118,6 +118,21 @@ DiagrammeR(
 )
 ```
 
+
+## Method
+
+The index is based on Gini index is calculated using the following formula:
+
+$$
+G = \frac{2 \sum_{i=1}^{n} i \cdot p_i}{n \sum_{i=1}^{n} p_i} - \frac{n + 1}{n}
+$$
+
+Where:
+- *n* is the number of observations.
+- $p_{i}$ is the value at position *i* in the sorted array.
+
+
+The modified Gini Index: 
 
 # The data
 ![](figures/map.png)
