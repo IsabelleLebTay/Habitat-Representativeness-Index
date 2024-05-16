@@ -79,24 +79,76 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="kumming-mtl-goal-and-target" class="level1">
 <h1>Kumming-Mtl Goal and target</h1>
-<p>Goal A: The integrity, connectivity and resilience of all ecosystems are maintained, enhanced, or restored, substantially increasing the area of natural ecosystems by 2050; Human induced extinction of known threatened species is halted, and, by 2050, the extinction rate and risk of all species are reduced tenfold and the abundance of native wild species is increased to healthy and resilient levels; The genetic diversity within populations of wild and domesticated species, is maintained, safeguarding their adaptive potential.</p>
+<p>Goal A: The integrity, connectivity and resilience of all ecosystems are maintained, enhanced, or restored, substantially increasing the area of natural ecosystems by 2050;</p>
+<p>Human induced extinction of known threatened species is halted, and, by 2050, the extinction rate and risk of all species are reduced tenfold and the abundance of native wild species is increased to healthy and resilient levels;</p>
+<p>The genetic diversity within populations of wild and domesticated species, is maintained, safeguarding their adaptive potential.</p>
 <p>Target 3: Ensure and enable that by 2030 at least 30 per cent of terrestrial and inland water areas, and of marine and coastal areas, especially areas of particular importance for biodiversity and ecosystem functions and services, are effectively conserved and managed through <strong>ecologically representative</strong>, well-connected and equitably governed systems of protected areas and other effective area-based conservation measures, recognizing indigenous and traditional territories, where applicable, and integrated into wider landscapes, seascapes and the ocean, while ensuring that any sustainable use, where appropriate in such areas, is fully consistent with conservation outcomes, recognizing and respecting the rights of indigenous peoples and local communities, including over their traditional territories.</p>
 </section>
 <section id="the-protected-habitat-eveness-phe" class="level1">
 <h1>The Protected Habitat Eveness (PHE)</h1>
-<p>We developed an indicator that is complementary to the Coverage of protected areas and other effective area-based conservation measures. Our measure address the second part of the target 3 which state that the 30X30 target needs to protect areas that are ecologically reprensentative for biodiversity by considering that varying ecological zone, and corresponding biodiversity, should be equally presented in the 30x30 target.</p>
+<p>We developed an indicator that is complementary to the <em>Coverage of protected areas and other effective area-based conservation measures</em>. Our measure address the second part of the target 3 which state that the 30X30 target needs to protect areas that are ecologically representative for biodiversity by considering that varying ecological zone, and corresponding biodiversity, should be <strong>equally representative</strong> in the 30x30 target.</p>
 <section id="scale" class="level2">
 <h2 class="anchored" data-anchor-id="scale">Scale</h2>
-<p>National: We chose to evaluate the evenness across Canada ecozone given that each one are characterize by varying landscape and biodiveristy.</p>
+<p>National: Evenness across Canada ecozone given that each one are characterize by varying landscape and biodiveristy.</p>
 <p>Subnational: Bioclimatic domains of Qc. Province</p>
+</section>
+<section id="type-of-protected-areas" class="level2">
+<h2 class="anchored" data-anchor-id="type-of-protected-areas">Type of protected areas</h2>
+<section id="key-definitions" class="level3">
+<h3 class="anchored" data-anchor-id="key-definitions">Key definitions</h3>
+<p><em>Protected area</em>: ‘A clearly defined geographical space, recognised, dedicated and managed, through legal or other effective means, to achieve the long-term conservation of nature with associated ecosystem services and cultural values.’ (Dudley et al., 2008).</p>
+<p><em>Other effective area-based conservation measure</em>: ‘a geographically defined area other than a Protected Area, which is governed and managed in ways that achieve positive and sustained long-term outcomes for the in situ conservation of biodiversity, with associated ecosystem functions and services and where applicable, cultural, spiritual, socio–economic, and other locally relevant values.’ (CBD, 2018).</p>
+<p><em>Areas of particular importance for biodiversity</em>: ‘sites that contain significant populations/extents of threatened or geographically restricted species or ecosystems, or that have significant ecological integrity or irreplaceability, significance for the maintenance of biological processes, or provide significant ecological connectivity to maintain populations of species’ (Plumptre et al 2024). Key Biodiversity Areas have been identified in all countries and represent the most comprehensive network of such sites, and are defined as sites “contributing significantly to the global persistence of biodiversity” (IUCN, 2016).</p>
+</section>
+<section id="iucn-categories" class="level3">
+<h3 class="anchored" data-anchor-id="iucn-categories">IUCN Categories</h3>
+<table class="table">
+<thead>
+<tr class="header">
+<th>no</th>
+<th style="text-align: right;">def</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1a</td>
+<td style="text-align: right;">Science or wilderness protection</td>
+</tr>
+<tr class="even">
+<td>1b</td>
+<td style="text-align: right;">Wilderness protection</td>
+</tr>
+<tr class="odd">
+<td>II</td>
+<td style="text-align: right;">Ecosystem protection &amp; recreation</td>
+</tr>
+<tr class="even">
+<td>III</td>
+<td style="text-align: right;">Conservation of specific natural features</td>
+</tr>
+<tr class="odd">
+<td>IV</td>
+<td style="text-align: right;">Conservation through management intervention</td>
+</tr>
+<tr class="even">
+<td>V</td>
+<td style="text-align: right;">Landscape/seascape conservation or recreation</td>
+</tr>
+<tr class="odd">
+<td>VI</td>
+<td style="text-align: right;">Sustainable use of natural resources</td>
+</tr>
+</tbody>
+</table>
+</section>
 </section>
 <section id="workflow" class="level2">
 <h2 class="anchored" data-anchor-id="workflow">Workflow</h2>
 <p>Headline indicator: Protected Habitat Coverage (PHC) Complementary indicator: Protected Habitat Eveness / Protection d’Habitat égal (PHE)</p>
 <div class="cell">
 <div class="cell-output-display">
-<div class="DiagrammeR html-widget html-fill-item" id="htmlwidget-66e2fb2850fb53a0588a" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-66e2fb2850fb53a0588a">{"x":{"diagram":"\n  graph TB\n  \n  A[Data ecoregion] --> C[Joined data]\n  B[Data protected areas] --> C[Joined data]\n  C --> E[Compute PHC by ecoregions and type and ecoregions]\n  C --> F[Compute PHE across ecoregions and types ecoregions]\n  E --> G[Visualize MAP]\n  F --> H[Visualize Score 3 bins: low-intermediary-high]\n  "},"evals":[],"jsHooks":[]}</script>
+<div class="DiagrammeR html-widget html-fill-item" id="htmlwidget-1a2f20f91f79120699a2" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-1a2f20f91f79120699a2">{"x":{"diagram":"\n  graph TB\n  \n  A[Data ecoregion] --> C[Joined data]\n  B[Data protected areas] --> C[Joined data]\n  C --> E[Compute PHC by ecoregions and type and ecoregions]\n  C --> F[Compute PHE across ecoregions and types ecoregions]\n  E --> G[Visualize MAP]\n  F --> H[Visualize Score 3 bins: low-intermediary-high]\n  "},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section>
@@ -104,7 +156,7 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="method">Method</h2>
 <p>The index is based on Gini index is calculated using the following formula:</p>
 <p><span class="math display">\[
-G = \frac{2 \sum_{i=1}^{n} i \cdot p_i}{n \sum_{i=1}^{n} p_i} - \frac{n + 1}{n}
+G = 1 - \frac{2 \sum_{i=1}^{n} i \cdot p_i}{n \sum_{i=1}^{n} p_i} - \frac{n + 1}{n}
 \]</span></p>
 <p>Where: - <em>n</em> is the number of observations. - <span class="math inline">\(p_{i}\)</span> is the value at position <em>i</em> in the sorted array.</p>
 <p>The modified Gini Index:</p>
