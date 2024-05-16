@@ -13,13 +13,13 @@ output:
 
 # Kumming-Mtl Goal and target
 
-Goal A: The integrity, connectivity and resilience of all ecosystems are maintained, enhanced, or restored, substantially increasing the area of natural ecosystems by 2050; 
+**Goal A:** The integrity, connectivity and resilience of all ecosystems are maintained, enhanced, or restored, substantially increasing the area of natural ecosystems by 2050; 
 
 Human induced extinction of known threatened species is halted, and, by 2050, the extinction rate and risk of all species are reduced tenfold and the abundance of native wild species is increased to healthy and resilient levels; 
 
 The genetic diversity within populations of wild and domesticated species, is maintained, safeguarding their adaptive potential.
 
-Target 3:  Ensure and enable that by 2030 at least 30 per cent of terrestrial and inland water areas, and of marine and coastal areas, especially areas of particular importance for biodiversity and ecosystem functions and services, are effectively conserved and managed through **ecologically representative**, well-connected and equitably governed systems of protected areas and other effective area-based conservation measures, recognizing indigenous and traditional territories, where applicable, and integrated into wider landscapes, seascapes and the ocean, while ensuring that any sustainable use, where appropriate in such areas, is fully consistent with conservation outcomes, recognizing and respecting the rights of indigenous peoples and local communities, including over their traditional territories.
+**Target 3:**  Ensure and enable that by 2030 at least 30 per cent of terrestrial and inland water areas, and of marine and coastal areas, especially areas of particular importance for biodiversity and ecosystem functions and services, are effectively conserved and managed through **ecologically representative**, well-connected and equitably governed systems of protected areas and other effective area-based conservation measures, recognizing indigenous and traditional territories, where applicable, and integrated into wider landscapes, seascapes and the ocean, while ensuring that any sustainable use, where appropriate in such areas, is fully consistent with conservation outcomes, recognizing and respecting the rights of indigenous peoples and local communities, including over their traditional territories.
 
 # The Protected Habitat Eveness (PHE)
 
@@ -44,13 +44,9 @@ Subnational: Bioclimatic domains of Qc. Province
 
 no| def
 -----|-----:
-1a | Science or wilderness protection 
-1b | Wilderness protection
-II | Ecosystem protection & recreation
-III | Conservation of specific natural features
-IV | Conservation through management intervention
-V | Landscape/seascape conservation or recreation
-VI | Sustainable use of natural resources
+I | Science or wilderness protection and Wilderness protection
+II | Ecosystem protection & recreation, Conservation of specific natural features, Conservation through management intervention, Landscape/seascape conservation or recreation, Sustainable use of natural resources
+III | KBA ?
 
 
 ```{r eval=FALSE, echo=FALSE}
@@ -162,11 +158,9 @@ DiagrammeR(
 
 ## Method
 
-To calculate the evenness calculator, we take the *inverse* of the Gini inequality index, which is a measure of the extent to which a quantity of interest (traditionally income per countries) are equal across geographical zone.
+To calculate the PHE, we take the *inverse* of the Gini inequality index, which is a measure of the extent to which a quantity of interest (traditionally income per countries) is equal across geographical zone.
 
-Here, our quantity of interest are the size of protected areas, and the geographical units are ecozones. However, the geographical zone can be any ecologically and jurisdictionally interesting type, like ecoregion, or province.
-
-Here, we take the inverse of the Gini index, so that 0 maps to low evenness and 1 is a perfect evenness.
+Here, our quantity of interest are the size of protected areas and the geographical units are ecozones or bioclimatic domains. However, the geographical zone can be any ecologically and jurisdictionally interesting type, like ecoregion, or province.
 
 We have also adapted the index so it accepts *proportions* of protected areas within geographical zones, since our ecozones are of different size. This ensures that one unit increase in proportion in one region has the same weight as a unit increase in another. This works toward our goal of mapping an even distribution of protected areas across ecozones.
 
@@ -186,7 +180,7 @@ Where
 $p_{i}$ is the proportion of protected area within the *i* ecozone's total area 
 
 
-
+**Interpretation:** Here, we take the inverse of the Gini index, so that 0 maps to low evenness and 1 is a perfect evenness.
 
 
 
