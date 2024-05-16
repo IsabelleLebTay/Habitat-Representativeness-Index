@@ -39,6 +39,19 @@ Subnational: Bioclimatic domains of Qc. Province
 
 *Areas of particular importance for biodiversity*: ‘sites that contain significant populations/extents of threatened or geographically restricted species or ecosystems, or that have significant ecological integrity or irreplaceability, significance for the maintenance of biological processes, or provide significant ecological connectivity to maintain populations of species’ (Plumptre et al 2024). Key Biodiversity Areas have been identified in all countries and represent the most comprehensive network of such sites, and are defined as sites “contributing significantly to the global persistence of biodiversity” (IUCN, 2016).
 
+### IUCN Categories 
+
+no| def
+-----|-----:
+1a | Science or wilderness protection 
+1b | Wilderness protection
+II | Ecosystem protection & recreation
+III | Conservation of specific natural features
+IV | Conservation through management intervention
+V | Landscape/seascape conservation or recreation
+VI | Sustainable use of natural resources
+
+
 ```{r eval=FALSE, echo=FALSE}
 # Download the ecozone data
 # Specify the URL of the file you want to download
