@@ -15,7 +15,12 @@ protected_data: AireProtegeeConservee_2023.gdb
 protected_layer: AireProtegeeConservee_2023
 
 
+##### OUTPUT #####
 
+output_path: output
+
+# Proportion computed
+proportion_df: proportion_protected.csv
 
 ##### SPATIAL #####
 crs: "ESRI:102001"
