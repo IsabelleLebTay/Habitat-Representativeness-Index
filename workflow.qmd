@@ -55,7 +55,7 @@ III | KBA ?
 url <- "https://sis.agr.gc.ca/cansis/nsdb/ecostrat/zone/ecozone_shp.zip"
 
 
-```{r canada_map eval=FALSE, echo=FALSE}
+```{r canada_map, eval=FALSE, echo=FALSE}
 library(sf)
 library(ggplot2)
 
