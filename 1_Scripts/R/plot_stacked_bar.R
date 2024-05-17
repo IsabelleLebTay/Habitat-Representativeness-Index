@@ -53,11 +53,11 @@ plot_stacked_bar(unit = "ecozones") {
   # New plot
   png(
     "figures/stacked_barplot.png",
-    height = 500,
-    width = 1000,
-    unit = "px"
+    height = 8,
+    width = 16,
+    unit = "in",
+    res = 500
   )
-  dev.new(height = 8, width = 16)
   plot(
     NA,
     xlim = c(secondary_coords["x0"], secondary_coords["x1"]),
