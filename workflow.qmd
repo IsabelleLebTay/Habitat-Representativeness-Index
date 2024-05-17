@@ -1,16 +1,17 @@
 ---
 title: "The Protected Habitat Eveness (PHE)"
 author: "Isabelle Lebeuf-Taylor, Vanessa Di Maurizio, Vincent Bellavance et Benjamin Mercier"
-documentclass: book
-output:
-  html_document:
-    toc: true
-    number_sections: true
-    revealjs_presentation: true
-    incremental: true   
+format: 
+  revealjs:
+    theme: [default]
+    title-slide-attributes: 
+      data-background-image: "https://whc.org/wp-content/themes/whc24/dist/images/grants-background.jpg"
+      data-background-size: contain
+    css: styles.css
+editor: visual
 ---
 
-# Kumming-Mtl Goal and target
+## Kumming-Mtl Goal and target
 
 **Goal A:** 
 
@@ -24,7 +25,7 @@ output:
 
 <!blabla!>
 
-# The Protected Habitat Eveness (PHE)
+## The Protected Habitat Eveness (PHE)
 
 We developed an indicator that is complementary to the *Coverage of protected areas and other effective area-based conservation measures*. Our measure address the second part of the target 3 which state that the 30X30 target needs to protect areas that are ecologically representative for biodiversity by considering that varying ecological zone, and corresponding biodiversity, should be **equally representative** in the 30x30 target.
 
