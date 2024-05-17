@@ -16,18 +16,10 @@ protected_layer: AireProtegeeConservee_2023
 
 
 # Quebec bioclimatic
-<<<<<<< HEAD
-qc_bioclimatic_data_path: qc_bioclimatique
-qc_bioclimatic_zipfile: qc_bioclimatic
-qc_bioclimatic_data: qc_bioclimatic.gdb
-
-
-=======
 qc_bioclimatic_data_path: qc_bioclimatic
 qc_bioclimatic_zipfile: qc_bioclimatic
 qc_bioclimatic_data: qc_bioclimatic.gdb
 
->>>>>>> 74796878323ff62fb377473f87b7285b4b5af087
 ##### OUTPUT #####
 
 output_path: output
