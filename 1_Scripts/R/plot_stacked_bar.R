@@ -2,7 +2,26 @@
 #' 
 #' @export
 
-plot_prop_stacked_bar(unit = "ecozones") {
+plot_stacked_bar(unit = "ecozones") {
+
+  # Colors
+  custom_colors <- c(
+    "Northern Arctic" = "lightskyblue", 
+    "Arctic Cordillera" = "royalblue", 
+    "Southern Arctic" = "royalblue4", 
+    "Taiga Cordillera" = "lavenderblush3", 
+    "Taiga Plain" = "khaki4", 
+    "Taiga Shield" = "orangered4", 
+    "Boreal Cordillera" = "darkolivegreen", 
+    "Boreal PLain" = "darkgreen", 
+    "Pacific Maritime" = "turquoise3", 
+    "Boreal Shield" = "coral2", 
+    "Hudson Plain" = "lightsalmon3", 
+    "Montane Cordillera" = "gold3", 
+    "Prairie" = "orange", 
+    "Atlantic Maritime" = "midnightblue", 
+    "MixedWood Plain" = "springgreen"
+  )
 
   # Coordinates of the main stacked bar
   main_coords <- c(
@@ -48,6 +67,7 @@ plot_prop_stacked_bar(unit = "ecozones") {
     xlab = "",
     ylab = ""
   )
+
   # Main rectangle
   rect(
     xleft = main_coords["x0"],
@@ -66,6 +86,7 @@ plot_prop_stacked_bar(unit = "ecozones") {
     col = "#374f2f",
     border = "black"
   )  
+
   text(
     sprintf(
       "%.2f %%",
@@ -79,7 +100,6 @@ plot_prop_stacked_bar(unit = "ecozones") {
   # Stacked bar by ecozones
   dat[,"x1_coords"] <- (cumsum(dat$protected_area)/max(cumsum(dat$protected_area)))*secondary_coords["x1"]
   dat[,"x0_coords"] <- c(secondary_coords["x0"], dat$x1_coords[1:(nrow(dat)-1)])
-  custom_colors <- c("Northern Arctic" = "lightskyblue", "Arctic Cordillera" = "royalblue", "Southern Arctic" = "royalblue4", "Taiga Cordillera" = "lavenderblush3", "Taiga Plain" = "khaki4", "Taiga Shield" = "orangered4", "Boreal Cordillera" = "darkolivegreen", "Boreal PLain" = "darkgreen", "Pacific Maritime" = "turquoise3", "Boreal Shield" = "coral2", "Hudson Plain" = "lightsalmon3", "Montane Cordillera" = "gold3", "Prairie" = "orange", "Atlantic Maritime" = "midnightblue", "MixedWood Plain" = "springgreen")
 
   for(i in dat$zone) {
     rect(
