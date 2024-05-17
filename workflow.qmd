@@ -1,6 +1,7 @@
 ---
 title: "Protected Habitat Evenness Index (PHEI)"
-author: "Isabelle Lebeuf-Taylor, Vanessa Di Maurizio, Vincent Bellavance et Benjamin Mercier"format: 
+author: "Isabelle Lebeuf-Taylor, Vanessa Di Maurizio, Vincent Bellavance et Benjamin Mercier"
+format: 
   revealjs:
     theme: [default]
     title-slide-attributes: 
