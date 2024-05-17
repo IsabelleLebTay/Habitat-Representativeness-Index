@@ -8,7 +8,7 @@
 <link href="workflow_files/libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="workflow_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="workflow_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.4.554">
+  <meta name="generator" content="quarto-1.3.450">
 
   <meta name="author" content="Isabelle Lebeuf-Taylor, Vanessa Di Maurizio, Vincent Bellavance et Benjamin Mercier">
   <title>Protected Habitat Evenness Index (PHEI)</title>
@@ -157,8 +157,7 @@
   }
 
   .callout.callout-titled .callout-body > .callout-content > :last-child {
-    padding-bottom: 0.5rem;
-    margin-bottom: 0;
+    margin-bottom: 0.5rem;
   }
 
   .callout.callout-titled .callout-icon::before {
@@ -411,10 +410,9 @@ Ensure and enable that by 2030 at least 30 per cent of <strong>terrestrial and i
 <section class="slide level2">
 
 <h3 id="workflow">Workflow</h3>
-<div class="cell" data-reveal="true" data-layout-align="default">
+<div class="cell" data-reveal="true">
 <div class="cell-output-display">
 <div>
-<p></p><figure class=""><p></p>
 <div>
 <pre class="mermaid mermaid-js">flowchart LR
 
@@ -443,26 +441,42 @@ Ensure and enable that by 2030 at least 30 per cent of <strong>terrestrial and i
   
 </pre>
 </div>
-<p></p></figure><p></p>
 </div>
 </div>
 </div>
-<p>Headline indicator: Protected Habitat Coverage (PHC).</p>
-<p>Complementary indicator: Protected Habitat Eveness / Protection d’Habitat égal (PHE).</p>
-<h3 id="scale">Scale</h3>
-<p>National: Evenness across Canada ecozone given that each one are characterize by varying landscape and biodiveristy.</p>
-<p>Subnational: Bioclimatic domains of Qc. Province</p>
+<p class="text-medium">
+<strong>Headline indicator:</strong> Protected Habitat Coverage (PHC).
+</p>
+<p class="text-medium">
+<strong>Complementary indicator:</strong> Protected Habitat Eveness / Protection d’Habitat égal (PHE).
+</p>
 </section>
-<section id="the-data" class="slide level2">
-<h2>The data</h2>
-<p><img data-src="figures/map.png"></p>
-<p><img data-src="figures/quebec_map.png"></p>
+<section class="slide level2">
+
+<h3 id="the-data">The data</h3>
+<div style="text-align:center;">
+<p><img src="figures/map.png" style="width:700px;height:650px;" alt="Map"></p>
+</div>
 </section>
-<section id="method" class="slide level2">
-<h2>Method</h2>
-<p>To calculate the PHE, we take the <em>inverse</em> of the Gini inequality index, which is a measure of the extent to which a quantity of interest (traditionally income per countries) is equal across geographical zone.</p>
-<p>Here, our quantity of interest are the size of protected areas and the geographical units are ecozones or bioclimatic domains. However, the geographical zone can be any ecologically and jurisdictionally interesting type, like ecoregion, or province.</p>
-<p>We have also adapted the index so it accepts <em>proportions</em> of protected areas within geographical zones, since our ecozones are of different size. This ensures that one unit increase in proportion in one region has the same weight as a unit increase in another. This works toward our goal of mapping an even distribution of protected areas across ecozones.</p>
+<section class="slide level2">
+
+<h3 id="the-data-1">The data</h3>
+<div style="text-align:center;">
+<p><img src="figures/quebec_map.png" style="width:700px;height:650px;" alt="Map"></p>
+</div>
+</section>
+<section class="slide level2">
+
+<h3 id="method">Method</h3>
+<div class="centered center-box">
+<p class="text-medium">
+To calculate the PHE, we take the <em>inverse</em> of the Gini inequality index, which is a measure of the extent to which a quantity of interest (traditionally income per countries) is equal across geographical zone. Our quantity of interest here are ecozonees and bioclimatic domains but it can be any ecologically and jurisdictionally interesting type, like ecoregion, or province. We have also adapted the index so it accepts <em>proportions</em> of protected areas within geographical zones, since our ecozones are of different size. This ensures that one unit increase in proportion in one region has the same weight as a unit increase in another. This works toward our goal of mapping an even distribution of protected areas across ecozones.
+</p>
+</div>
+</section>
+<section class="slide level2">
+
+<h3 id="phei-computation">PHEI computation</h3>
 <p>The Protected Habitat Evenness Index is calculated as:</p>
 <p><span class="math display">\[
 PHEI = 1 - G
@@ -471,13 +485,35 @@ PHEI = 1 - G
 G = 1 - \frac{2 \sum_{i=1}^{n} i \cdot p_i}{n \sum_{i=1}^{n} p_i} - \frac{n + 1}{n}
 \]</span></p>
 <p>Where <em>n</em> is the number of ecozones, and <span class="math inline">\(p_{i}\)</span> is the proportion of protected area within the <em>i</em> ecozone’s total area</p>
+</section>
+<section class="slide level2">
+
+<h3 id="results">Results</h3>
+<h4 id="protection-habitat-coverage-phc">Protection habitat coverage (PHC)</h4>
+<div style="text-align:center;">
+<p><img src="figures/stacked_barplot.png" style="width:900px;height:650px;" alt="Map"></p>
+</div>
+</section>
+<section class="slide level2">
+
+<h3 id="results-1">Results</h3>
+<h4 id="protection-habitat-evenness">Protection habitat evenness</h4>
+<div style="text-align:center;">
+<p><img src="figures/proportion_barplot.png" style="width:900px;height:600px;" alt="Map"></p>
+</div>
+</section>
+<section class="slide level2">
+
 <p><strong>Interpretation:</strong> Here, we take the inverse of the Gini index, so that 0 maps to low evenness and 1 is a perfect evenness.</p>
 </section>
-<section id="example-of-phe-index-over-time" class="title-slide slide level1 center">
-<h1>Example of PHE Index over time</h1>
+<section class="slide level2">
+
+<h3 id="example-of-phe-index-over-time">Example of PHE Index over time</h3>
 
 <img data-src="figures/trend_example.png" class="r-stretch"></section>
+<section class="slide level2">
 
+</section>
 <section>
 <section id="interpretation" class="title-slide slide level1 center">
 <h1>Interpretation</h1>
@@ -488,17 +524,21 @@ G = 1 - \frac{2 \sum_{i=1}^{n} i \cdot p_i}{n \sum_{i=1}^{n} p_i} - \frac{n + 1}
 <ul>
 <li>NCC is planning to acquire and preserve land. After applying KBA index and other species conservation indices, they have 4 candidate areas across multiple ecoregions. They simulate the evenness index in each candidate scenario, and choose the to protect the area where the PHE Index is highest.</li>
 </ul>
+</section>
+<section class="slide level2">
+
 </section></section>
+<section>
 <section id="strengths-and-limitations" class="title-slide slide level1 center">
 <h1>Strengths and Limitations</h1>
-<p><em>Limitations</em>: while the index is useful for regional decision-making and immediate conservation action, its <em>specificity</em> is uncertain. Ecozones are <strong>proxy</strong> measures of ecologically relevent protected areas. Although ecozones are accepted ecological distinctions, our method does not account for protected areas where ecozones intersect, which may be particularly sensitive to climate change.</p>
-<p><em>Strengths</em>: The index is measurable and adapts a peer-reviewed method to assess inequality across units, the Gini index. The quality of the data is verified and updated continuously by federal agencies. It is simple to communicate, and provides immediate feedback to decision-makers.</p>
-<div class="quarto-auto-generated-content">
+
+<p><em>Limitations</em>: - Ecozones are <strong>proxy</strong> measures of ecologically relevent protected areas - PHEI does not account for protected areas where ecozones intersect - Sensitivity:</p>
+<p><em>Strengths</em>: - Measurable and built from peer-reviewed method to assess inequality across units - High quality data, updated often - Simple to communicate, and provides immediate feedback to decision-makers</p>
 <div class="footer footer-default">
 
 </div>
-</div>
 </section>
+
     </div>
   </div>
 
@@ -525,6 +565,7 @@ G = 1 - \frac{2 \sum_{i=1}^{n} i \cdot p_i}{n \sum_{i=1}^{n} p_i} - \frac{n + 1}
       Reveal.initialize({
 'controlsAuto': true,
 'previewLinksAuto': false,
+'smaller': false,
 'pdfSeparateFragments': false,
 'autoAnimateEasing': "ease",
 'autoAnimateDuration': 1,
@@ -823,27 +864,10 @@ G = 1 - \frac{2 \sum_{i=1}^{n} i \cdot p_i}{n \sum_{i=1}^{n} p_i} - \frac{n + 1}
         // clear code selection
         e.clearSelection();
       });
-        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-        var mailtoRegex = new RegExp(/^mailto:/);
-          var filterRegex = new RegExp('/' + window.location.host + '/');
-        var isInternal = (href) => {
-            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
-        }
-        // Inspect non-navigation links and adorn them if external
-     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
-        for (var i=0; i<links.length; i++) {
-          const link = links[i];
-          if (!isInternal(link.href)) {
-            // undo the damage that might have been done by quarto-nav.js in the case of
-            // links that we want to consider external
-            if (link.dataset.originalHref !== undefined) {
-              link.href = link.dataset.originalHref;
-            }
-          }
-        }
-      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      function tippyHover(el, contentFn) {
         const config = {
           allowHTML: true,
+          content: contentFn,
           maxWidth: 500,
           delay: 100,
           arrow: false,
@@ -853,17 +877,8 @@ G = 1 - \frac{2 \sum_{i=1}^{n} i \cdot p_i}{n \sum_{i=1}^{n} p_i} - \frac{n + 1}
           interactive: true,
           interactiveBorder: 10,
           theme: 'light-border',
-          placement: 'bottom-start',
+          placement: 'bottom-start'
         };
-        if (contentFn) {
-          config.content = contentFn;
-        }
-        if (onTriggerFn) {
-          config.onTrigger = onTriggerFn;
-        }
-        if (onUntriggerFn) {
-          config.onUntrigger = onUntriggerFn;
-        }
           config['offset'] = [0,0];
           config['maxWidth'] = 700;
         window.tippy(el, config); 
@@ -877,11 +892,7 @@ G = 1 - \frac{2 \sum_{i=1}^{n} i \cdot p_i}{n \sum_{i=1}^{n} p_i} - \frac{n + 1}
           try { href = new URL(href).hash; } catch {}
           const id = href.replace(/^#\/?/, "");
           const note = window.document.getElementById(id);
-          if (note) {
-            return note.innerHTML;
-          } else {
-            return "";
-          }
+          return note.innerHTML;
         });
       }
       const findCites = (el) => {
