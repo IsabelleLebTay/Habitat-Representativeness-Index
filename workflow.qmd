@@ -6,7 +6,7 @@ output:
   html_document:
     toc: true
     number_sections: true
-    revealjs_presentation: true
+    revealjs_presentation:
     incremental: true   
 ---
 
@@ -122,26 +122,39 @@ ggsave("figures/quebec_map.png", plot = map_quebec, dpi = "retina", height = 18,
 
 ## Workflow
 
+
+
+```{mermaid}
+flowchart LR
+
+    A[Data ecoregion] 
+    B[Data protected areas] 
+
+    A --> C[Join, filter and intersect polygon data]
+    B --> C
+    C --> D(Compute ecozone PHC per yr)
+    D --> E(PHE function to get PHE score)
+  
+    E --> F[Barplot PHC by ecozone]
+    E --> G[Graph with evolution of PHE score]
+    E --> H[Map Canada PHC]
+  
+
+  style A fill:#84a98c
+  style B fill:#84a98c
+  style C fill:#e5e5e5
+  style D fill:#e5e5e5
+  style E fill:#e5e5e5
+  style F fill:#f4a261
+  style G fill:#f4a261
+  style H fill:#f4a261
+ 
+  
+```
+
 Headline indicator: Protected Habitat Coverage (PHC).
 
 Complementary indicator: Protected Habitat Eveness / Protection d'Habitat égal (PHE).
-
-```{r echo=FALSE}
-library(DiagrammeR)
-
-DiagrammeR(
-  "
-  graph TB
-  
-  A[Data ecoregion] --> C[Joined data]
-  B[Data protected areas] --> C[Joined data]
-  C --> E[Compute PHC by ecoregions and type and ecoregions]
-  C --> F[Compute PHE across ecoregions and types ecoregions]
-  E --> G[Visualize MAP]
-  F --> H[Visualize score throught yrs]
-  "
-)
-```
 
 
 ## The data
