@@ -1,6 +1,7 @@
 /* Make all text white on the title slide */
 .reveal .slides>section:first-of-type * {
   color: white !important;
+<<<<<<< HEAD
 }
 
 /* Define styles for different text sizes */
@@ -32,4 +33,6 @@
     justify-content: center;
     align-items: center;
     height: 60%;
+=======
+>>>>>>> 549c36f41bf80cc45671db8d76210a1f17d9c719
 }
