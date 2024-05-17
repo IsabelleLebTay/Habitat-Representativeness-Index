@@ -8,10 +8,10 @@
 <link href="workflow_files/libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="workflow_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="workflow_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.3.450">
+  <meta name="generator" content="quarto-1.4.554">
 
   <meta name="author" content="Isabelle Lebeuf-Taylor, Vanessa Di Maurizio, Vincent Bellavance et Benjamin Mercier">
-  <title>The Protected Habitat Eveness (PHE)</title>
+  <title>Protected Habitat Evenness Index (PHEI)</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -157,7 +157,8 @@
   }
 
   .callout.callout-titled .callout-body > .callout-content > :last-child {
-    margin-bottom: 0.5rem;
+    padding-bottom: 0.5rem;
+    margin-bottom: 0;
   }
 
   .callout.callout-titled .callout-icon::before {
@@ -320,21 +321,16 @@
       margin-right: 0; 
     }
   </style>
-  <script src="workflow_files/libs/htmlwidgets-1.6.3/htmlwidgets.js"></script>
-  <script src="workflow_files/libs/d3-3.3.8/d3.min.js"></script>
-  <script src="workflow_files/libs/dagre-0.4.0/dagre-d3.min.js"></script>
-  <link href="workflow_files/libs/mermaid-0.3.0/dist/mermaid.css" rel="stylesheet">
-  <script src="workflow_files/libs/mermaid-0.3.0/dist/mermaid.slim.min.js"></script>
-  <link href="workflow_files/libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet">
-  <script src="workflow_files/libs/chromatography-0.1/chromatography.js"></script>
-  <script src="workflow_files/libs/DiagrammeR-binding-1.0.11/DiagrammeR.js"></script>
+  <script src="workflow_files/libs/quarto-diagram/mermaid.min.js"></script>
+  <script src="workflow_files/libs/quarto-diagram/mermaid-init.js"></script>
+  <link href="workflow_files/libs/quarto-diagram/mermaid.css" rel="stylesheet">
 </head>
 <body class="quarto-light">
   <div class="reveal">
     <div class="slides">
 
 <section id="title-slide" data-background-image="https://whc.org/wp-content/themes/whc24/dist/images/grants-background.jpg" data-background-size="contain" class="quarto-title-block center">
-  <h1 class="title">The Protected Habitat Eveness (PHE)</h1>
+  <h1 class="title">Protected Habitat Evenness Index (PHEI)</h1>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -345,70 +341,117 @@ Isabelle Lebeuf-Taylor, Vanessa Di Maurizio, Vincent Bellavance et Benjamin Merc
 </div>
 
 </section>
-<section id="kumming-mtl-goal-and-target" class="slide level2">
-<h2>Kumming-Mtl Goal and target</h2>
-<p><strong>Goal A:</strong></p>
-<ol type="1">
-<li><p>The integrity, connectivity and resilience of all ecosystems are maintained, enhanced, or restored, substantially increasing the area of natural ecosystems by 2050;</p></li>
-<li><p>Human induced extinction of known threatened species is halted, and, by 2050, the extinction rate and risk of all species are reduced tenfold and the abundance of native wild species is increased to healthy and resilient levels;</p></li>
-<li><p>The genetic diversity within populations of wild and domesticated species, is maintained, safeguarding their adaptive potential.</p></li>
+<section class="slide level2">
+
+<h3 id="kunming-montreal-goals-and-target">Kunming-Montreal Goals and target</h3>
+<h4 id="goal-a"><strong>Goal A:</strong></h4>
+<p class="text-medium">
+</p><ol type="1">
+<li><p>The integrity, connectivity and resilience of <strong>all ecosystems</strong> are maintained, enhanced, or restored, substantially increasing the area of natural ecosystems by 2050.</p></li>
+<li><p><span class="text-transparent"> Human induced extinction of known threatened species is halted, and, by 2050, the extinction rate and risk of all species are reduced tenfold and the abundance of native wild species is increased to healthy and resilient levels. </span></p></li>
+<li><p><span class="text-transparent"> The genetic diversity within populations of wild and domesticated species, is maintained, safeguarding their adaptive potential. </span></p></li>
 </ol>
-<p><strong>Target 3:</strong> Ensure and enable that by 2030 at least 30 per cent of <strong>terrestrial and inland water areas</strong>, and of marine and coastal areas, especially areas of particular importance for biodiversity and ecosystem functions and services, are effectively conserved and managed through <strong>ecologically representative</strong>, well-connected and equitably governed systems of protected areas and other effective area-based conservation measures, recognizing indigenous and traditional territories, where applicable, and integrated into wider landscapes, seascapes and the ocean, while ensuring that any sustainable use, where appropriate in such areas, is fully consistent with conservation outcomes, recognizing and respecting the rights of indigenous peoples and local communities, including over their traditional territories.</p>
-<p>&lt;!blabla!&gt;</p>
+<p></p>
 </section>
-<section id="the-protected-habitat-eveness-phe" class="slide level2">
-<h2>The Protected Habitat Eveness (PHE)</h2>
-<p>We developed an indicator that is complementary to the <em>Coverage of protected areas and other effective area-based conservation measures</em>. Our measure address the second part of the target 3 which state that the 30X30 target needs to protect areas that are ecologically representative for biodiversity by considering that varying ecological zone, and corresponding biodiversity, should be <strong>equally representative</strong> in the 30x30 target.</p>
+<section class="slide level2">
+
+<h3 id="kunming-montreal-goal-and-target">Kunming-Montreal Goal and target</h3>
+<h4 id="target-3"><strong>Target 3:</strong></h4>
+<div class="centered center-box">
+<p class="text-medium">
+Ensure and enable that by 2030 at least 30 per cent of <strong>terrestrial and inland water areas</strong>, and of marine and coastal areas, <span class="text-transparent">especially areas of particular importance for biodiversity and ecosystem functions and services</span>, are effectively conserved and managed through <strong>ecologically representative</strong>, <span class="text-transparent"> well-connected and equitably governed</span> <strong>systems of protected areas and other effective area-based conservation measures</strong>, <span class="text-transparent">recognizing indigenous and traditional territories, where applicable, and integrated into wider landscapes, seascapes and the ocean, while ensuring that any sustainable use, where appropriate in such areas, is fully consistent with conservation outcomes, recognizing and respecting the rights of indigenous peoples and local communities, including over their traditional territories.</span>
+</p>
+</div>
 </section>
-<section id="scale" class="slide level2">
-<h2>Scale</h2>
-<p>National: Evenness across Canada ecozone given that each one are characterize by varying landscape and biodiveristy.</p>
-<p>Subnational: Bioclimatic domains of Qc. Province</p>
+<section class="slide level2">
+
+<h3 id="protected-habitat-evenness-index-phei">Protected Habitat Evenness Index (PHEI)</h3>
+<div class="centered center-box">
+<p><strong>The PHEI reports the evenness of the spatial distribution of protected areas across ecologically distinct regions and directly adresses Canada’s commitment to protect a representative 30% of our landscape.</strong></p>
+</div>
 </section>
-<section id="type-of-protected-areas" class="slide level2">
-<h2>Type of protected areas</h2>
-<h3 id="key-definitions">Key definitions</h3>
-<p><em>Protected area</em>: ‘A clearly defined geographical space, recognized, dedicated and managed, through legal or other effective means, to achieve the long-term conservation of nature with associated ecosystem services and cultural values.’ (Dudley et al., 2008).</p>
-<p><em>Other effective area-based conservation measure</em>: ‘a geographically defined area other than a Protected Area, which is governed and managed in ways that achieve positive and sustained long-term outcomes for the in situ conservation of biodiversity, with associated ecosystem functions and services and where applicable, cultural, spiritual, socio–economic, and other locally relevant values.’ (CBD, 2018).</p>
-<p><em>Areas of particular importance for biodiversity</em>: ‘sites that contain significant populations/extents of threatened or geographically restricted species or ecosystems, or that have significant ecological integrity or irreplaceability, significance for the maintenance of biological processes, or provide significant ecological connectivity to maintain populations of species’ (Plumptre et al 2024). Key Biodiversity Areas have been identified in all countries and represent the most comprehensive network of such sites, and are defined as sites “contributing significantly to the global persistence of biodiversity” (IUCN, 2016).</p>
+<section class="slide level2">
+
+<h3 id="type-of-protected-areas">Type of protected areas</h3>
+<em>Protected area</em>:
+<p class="text-small">
+‘A clearly defined geographical space, recognized, dedicated and managed, through legal or other effective means, to achieve the long-term conservation of nature with associated ecosystem services and cultural values.’ (Dudley et al., 2008).
+</p>
+<em>Other effective area-based conservation measure</em>:
+<p class="text-small">
+‘a geographically defined area other than a Protected Area, which is governed and managed in ways that achieve positive and sustained long-term outcomes for the in situ conservation of biodiversity, with associated ecosystem functions and services and where applicable, cultural, spiritual, socio–economic, and other locally relevant values.’ (CBD, 2018).
+</p>
+</section>
+<section class="slide level2">
+
 <h3 id="iucn-categories">IUCN Categories</h3>
 <table>
 <colgroup>
-<col style="width: 45%">
-<col style="width: 54%">
+<col style="width: 3%">
+<col style="width: 96%">
 </colgroup>
 <thead>
 <tr class="header">
 <th>no</th>
-<th style="text-align: right;">def</th>
+<th>definition</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td>I</td>
-<td style="text-align: right;">Science or wilderness protection and Wilderness protection</td>
+<td>Science or wilderness protection and Wilderness protection</td>
 </tr>
 <tr class="even">
 <td>II</td>
-<td style="text-align: right;">Ecosystem protection &amp; recreation, Conservation of specific natural features, Conservation through management intervention, Landscape/seascape conservation or recreation, Sustainable use of natural resources</td>
-</tr>
-<tr class="odd">
-<td>III</td>
-<td style="text-align: right;">KBA</td>
+<td>Ecosystem protection &amp; recreation, Conservation of specific natural features, Conservation through management intervention, Landscape/seascape conservation or recreation, Sustainable use of natural resources</td>
 </tr>
 </tbody>
 </table>
 </section>
-<section id="workflow" class="slide level2">
-<h2>Workflow</h2>
+<section class="slide level2">
+
+<h3 id="workflow">Workflow</h3>
+<div class="cell" data-reveal="true" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart LR
+
+    A[Data ecoregion] 
+    B[Data protected areas] 
+
+    A --&gt; C[Join, filter and intersect polygon data]
+    B --&gt; C
+    C --&gt; D(Compute ecozone PHC per yr)
+    D --&gt; E(PHE function to get PHE score)
+  
+    E --&gt; F[Barplot PHC by ecozone]
+    E --&gt; G[Graph with evolution of PHE score]
+    E --&gt; H[Map Canada PHC]
+  
+
+  style A fill:#84a98c
+  style B fill:#84a98c
+  style C fill:#e5e5e5
+  style D fill:#e5e5e5
+  style E fill:#e5e5e5
+  style F fill:#f4a261
+  style G fill:#f4a261
+  style H fill:#f4a261
+ 
+  
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
 <p>Headline indicator: Protected Habitat Coverage (PHC).</p>
 <p>Complementary indicator: Protected Habitat Eveness / Protection d’Habitat égal (PHE).</p>
-<div class="cell">
-<div class="cell-output-display">
-<div class="DiagrammeR html-widget html-fill-item" id="htmlwidget-7e4d713ab5e8b98a9ffc" style="width:960px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-7e4d713ab5e8b98a9ffc">{"x":{"diagram":"\n  graph TB\n  \n  A[Data ecoregion] --> C[Joined data]\n  B[Data protected areas] --> C[Joined data]\n  C --> E[Compute PHC by ecoregions and type and ecoregions]\n  C --> F[Compute PHE across ecoregions and types ecoregions]\n  E --> G[Visualize MAP]\n  F --> H[Visualize score throught yrs]\n  "},"evals":[],"jsHooks":[]}</script>
-</div>
-</div>
+<h3 id="scale">Scale</h3>
+<p>National: Evenness across Canada ecozone given that each one are characterize by varying landscape and biodiveristy.</p>
+<p>Subnational: Bioclimatic domains of Qc. Province</p>
 </section>
 <section id="the-data" class="slide level2">
 <h2>The data</h2>
@@ -450,8 +493,10 @@ G = 1 - \frac{2 \sum_{i=1}^{n} i \cdot p_i}{n \sum_{i=1}^{n} p_i} - \frac{n + 1}
 <h1>Strengths and Limitations</h1>
 <p><em>Limitations</em>: while the index is useful for regional decision-making and immediate conservation action, its <em>specificity</em> is uncertain. Ecozones are <strong>proxy</strong> measures of ecologically relevent protected areas. Although ecozones are accepted ecological distinctions, our method does not account for protected areas where ecozones intersect, which may be particularly sensitive to climate change.</p>
 <p><em>Strengths</em>: The index is measurable and adapts a peer-reviewed method to assess inequality across units, the Gini index. The quality of the data is verified and updated continuously by federal agencies. It is simple to communicate, and provides immediate feedback to decision-makers.</p>
+<div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 
+</div>
 </div>
 </section>
     </div>
@@ -480,7 +525,6 @@ G = 1 - \frac{2 \sum_{i=1}^{n} i \cdot p_i}{n \sum_{i=1}^{n} p_i} - \frac{n + 1}
       Reveal.initialize({
 'controlsAuto': true,
 'previewLinksAuto': false,
-'smaller': false,
 'pdfSeparateFragments': false,
 'autoAnimateEasing': "ease",
 'autoAnimateDuration': 1,
@@ -779,10 +823,27 @@ G = 1 - \frac{2 \sum_{i=1}^{n} i \cdot p_i}{n \sum_{i=1}^{n} p_i} - \frac{n + 1}
         // clear code selection
         e.clearSelection();
       });
-      function tippyHover(el, contentFn) {
+        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+        var mailtoRegex = new RegExp(/^mailto:/);
+          var filterRegex = new RegExp('/' + window.location.host + '/');
+        var isInternal = (href) => {
+            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+        }
+        // Inspect non-navigation links and adorn them if external
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+        for (var i=0; i<links.length; i++) {
+          const link = links[i];
+          if (!isInternal(link.href)) {
+            // undo the damage that might have been done by quarto-nav.js in the case of
+            // links that we want to consider external
+            if (link.dataset.originalHref !== undefined) {
+              link.href = link.dataset.originalHref;
+            }
+          }
+        }
+      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
         const config = {
           allowHTML: true,
-          content: contentFn,
           maxWidth: 500,
           delay: 100,
           arrow: false,
@@ -792,8 +853,17 @@ G = 1 - \frac{2 \sum_{i=1}^{n} i \cdot p_i}{n \sum_{i=1}^{n} p_i} - \frac{n + 1}
           interactive: true,
           interactiveBorder: 10,
           theme: 'light-border',
-          placement: 'bottom-start'
+          placement: 'bottom-start',
         };
+        if (contentFn) {
+          config.content = contentFn;
+        }
+        if (onTriggerFn) {
+          config.onTrigger = onTriggerFn;
+        }
+        if (onUntriggerFn) {
+          config.onUntrigger = onUntriggerFn;
+        }
           config['offset'] = [0,0];
           config['maxWidth'] = 700;
         window.tippy(el, config); 
@@ -807,7 +877,11 @@ G = 1 - \frac{2 \sum_{i=1}^{n} i \cdot p_i}{n \sum_{i=1}^{n} p_i} - \frac{n + 1}
           try { href = new URL(href).hash; } catch {}
           const id = href.replace(/^#\/?/, "");
           const note = window.document.getElementById(id);
-          return note.innerHTML;
+          if (note) {
+            return note.innerHTML;
+          } else {
+            return "";
+          }
         });
       }
       const findCites = (el) => {
