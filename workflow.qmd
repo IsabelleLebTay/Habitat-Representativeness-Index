@@ -253,8 +253,8 @@ $p_{i}$ is the proportion of protected area within the *i* ecozone's total area
 
 ---
 
-### Example of PHE Index over time
-![](figures/trend_example.png)
+# Example of PHE Index over time
+![](figures/trend_last3years.png)
 
 ---
 
@@ -269,8 +269,13 @@ The PHE index describes how close Canada is to meeting the ecological representa
 ---
 
 # Strengths and Limitations
-*Limitations*: while the index is useful for regional decision-making and immediate conservation action, its *specificity* is uncertain. Ecozones are **proxy** measures of ecologically relevent protected areas. Although ecozones are accepted ecological distinctions, our method does not account for protected areas where ecozones intersect, which may be particularly sensitive to climate change.
+**Limitations**: <br>
+- Ecozones are **proxy** measures of ecologically relevent protected areas<br>
+- PHEI does not account for protected areas where ecozones intersect<br>
 
-*Strengths*: The index is measurable and adapts a peer-reviewed method to assess inequality across units, the Gini index. The quality of the data is verified and updated continuously by federal agencies. It is simple to communicate, and provides immediate feedback to decision-makers.
+**Strengths**: <br>
+- Measurable and built from peer-reviewed method to assess inequality across units <br>
+- High quality data, updated often<br>
+- Simple to communicate, provides immediate feedback to decision-makers<br>
 
 ---

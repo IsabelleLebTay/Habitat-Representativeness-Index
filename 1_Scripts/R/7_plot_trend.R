@@ -33,9 +33,17 @@ plot_temporal_trend <- function(evenness_index, years) {
          color = "Legend") +
     scale_color_manual(values = c("Current evenness" = "#ff00ae", "Target evenness" = "#278e27")) +
     theme_minimal() +
-    theme(panel.grid.major = element_blank(),  # Remove major gridlines
-          panel.grid.minor = element_blank())  # Remove minor gridlines
-
+    ylim(0,1)+
+    theme(
+      panel.grid.major = element_blank(),  # Remove major gridlines
+      panel.grid.minor = element_blank(),  # Remove minor gridlines
+      axis.line = element_line(size = 0.5, color = "black"),  # Keep axes lines
+      axis.text = element_text(size = 14),  # Make axis numbers larger
+      axis.title = element_text(size = 16),  # Make axis titles larger
+      legend.text = element_text(size = 14),  # Make legend text larger
+      legend.title = element_text(size = 16),  # Make legend title larger
+      plot.title = element_text(size = 18)  # Make plot title larger
+    ) # Keep axes lines
   # Print the plot
   print(p)
 }
