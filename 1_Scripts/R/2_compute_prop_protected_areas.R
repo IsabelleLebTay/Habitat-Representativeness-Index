@@ -19,7 +19,11 @@ prop_protected_areas <- function(unit = "ecozones", zone = "ZONE_NAME") {
   intersected_dat <- terra::intersect(
     dat |> terra::vect(),
     protected_areas |> terra::vect()
-  )
+  ) |>
+    terra::intersect(
+      x = _,
+      y = geodata::gadm("can", level = 1, path = tempdir())
+    )
 
   year2020 <- intersected_dat$QUALYEAR <= 2020
   na_year <- is.na(intersected_dat$QUALYEAR)
@@ -48,8 +52,8 @@ prop_protected_areas <- function(unit = "ecozones", zone = "ZONE_NAME") {
       df[i, "total_area"] <- terra::expanse(tmp, unit = "km") |> sum()
       df[i, "protected_area"] <- terra::expanse(tmp_protected, unit = "km") |> sum()
       df[i, "proportion"] <- df[i,"protected_area"]/df[i, "total_area"]
-      
     }
+    return(df)
   }) |>
     do.call(what = rbind, args = _)
 

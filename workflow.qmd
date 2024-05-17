@@ -1,27 +1,31 @@
 ---
 title: "The Protected Habitat Eveness (PHE)"
 author: "Isabelle Lebeuf-Taylor, Vanessa Di Maurizio, Vincent Bellavance et Benjamin Mercier"
-documentclass: book
-output:
-  html_document:
-    toc: true
-    number_sections: true
-  revealjs_presentation:
-    incremental: true   
+format: 
+  revealjs:
+    theme: [default]
+    title-slide-attributes: 
+      data-background-image: "https://whc.org/wp-content/themes/whc24/dist/images/grants-background.jpg"
+      data-background-size: contain
+    css: styles.css
+editor: visual
 ---
 
+## Kumming-Mtl Goal and target
 
-# Kumming-Mtl Goal and target
+**Goal A:** 
 
-**Goal A:** The integrity, connectivity and resilience of all ecosystems are maintained, enhanced, or restored, substantially increasing the area of natural ecosystems by 2050; 
+(1) The integrity, connectivity and resilience of all ecosystems are maintained, enhanced, or restored, substantially increasing the area of natural ecosystems by 2050; 
 
-Human induced extinction of known threatened species is halted, and, by 2050, the extinction rate and risk of all species are reduced tenfold and the abundance of native wild species is increased to healthy and resilient levels; 
+(2) Human induced extinction of known threatened species is halted, and, by 2050, the extinction rate and risk of all species are reduced tenfold and the abundance of native wild species is increased to healthy and resilient levels; 
 
-The genetic diversity within populations of wild and domesticated species, is maintained, safeguarding their adaptive potential.
+(3) The genetic diversity within populations of wild and domesticated species, is maintained, safeguarding their adaptive potential.
 
-**Target 3:**  Ensure and enable that by 2030 at least 30 per cent of terrestrial and inland water areas, and of marine and coastal areas, especially areas of particular importance for biodiversity and ecosystem functions and services, are effectively conserved and managed through **ecologically representative**, well-connected and equitably governed systems of protected areas and other effective area-based conservation measures, recognizing indigenous and traditional territories, where applicable, and integrated into wider landscapes, seascapes and the ocean, while ensuring that any sustainable use, where appropriate in such areas, is fully consistent with conservation outcomes, recognizing and respecting the rights of indigenous peoples and local communities, including over their traditional territories.
+**Target 3:**  Ensure and enable that by 2030 at least 30 per cent of **terrestrial and inland water areas**, and of marine and coastal areas, especially areas of particular importance for biodiversity and ecosystem functions and services, are effectively conserved and managed through **ecologically representative**, well-connected and equitably governed systems of protected areas and other effective area-based conservation measures, recognizing indigenous and traditional territories, where applicable, and integrated into wider landscapes, seascapes and the ocean, while ensuring that any sustainable use, where appropriate in such areas, is fully consistent with conservation outcomes, recognizing and respecting the rights of indigenous peoples and local communities, including over their traditional territories.
 
-# The Protected Habitat Eveness (PHE)
+<!blabla!>
+
+## The Protected Habitat Eveness (PHE)
 
 We developed an indicator that is complementary to the *Coverage of protected areas and other effective area-based conservation measures*. Our measure address the second part of the target 3 which state that the 30X30 target needs to protect areas that are ecologically representative for biodiversity by considering that varying ecological zone, and corresponding biodiversity, should be **equally representative** in the 30x30 target.
 
@@ -34,7 +38,7 @@ Subnational: Bioclimatic domains of Qc. Province
 
 ### Key definitions
 
-*Protected area*: ‘A clearly defined geographical space, recognised, dedicated and managed, through legal or other effective means, to achieve the long-term conservation of nature with associated ecosystem services and cultural values.’ (Dudley et al., 2008). 
+*Protected area*: ‘A clearly defined geographical space, recognized, dedicated and managed, through legal or other effective means, to achieve the long-term conservation of nature with associated ecosystem services and cultural values.’ (Dudley et al., 2008). 
 
 *Other effective area-based conservation measure*: ‘a geographically defined area other than a Protected Area, which is governed and managed in ways that achieve positive and sustained long-term outcomes for the in situ conservation of biodiversity, with associated ecosystem functions and services and where applicable, cultural, spiritual, socio–economic, and other locally relevant values.’ (CBD, 2018).
 
@@ -46,11 +50,9 @@ no| def
 -----|-----:
 I | Science or wilderness protection and Wilderness protection
 II | Ecosystem protection & recreation, Conservation of specific natural features, Conservation through management intervention, Landscape/seascape conservation or recreation, Sustainable use of natural resources
-III | KBA ?
-
+III | KBA
 
 ```{r eval=FALSE, echo=FALSE}
-
 
 library(sf)
 library(ggplot2)
@@ -137,7 +139,7 @@ DiagrammeR(
   C --> E[Compute PHC by ecoregions and type and ecoregions]
   C --> F[Compute PHE across ecoregions and types ecoregions]
   E --> G[Visualize MAP]
-  F --> H[Visualize Score 3 bins: low-intermediary-high]
+  F --> H[Visualize score throught yrs]
   "
 )
 ```
