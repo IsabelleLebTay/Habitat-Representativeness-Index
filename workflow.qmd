@@ -222,7 +222,7 @@ $p_{i}$ is the proportion of protected area within the *i* ecozone's total area
 
 
 # Example of PHE Index over time
-![](figures/trend_example.png)
+![](figures/PHEI_per_year.png)
 
 # Interpretation
 The PHE index describes how close Canada is to meeting the ecological representativenness of our protected habitats. It highlights regions where further habitat protection initiatives will bring us closer to our commitment.
@@ -231,14 +231,13 @@ The PHE index describes how close Canada is to meeting the ecological representa
 - NCC is planning to acquire and preserve land. After applying KBA index and other species conservation indices, they have 4 candidate areas across multiple ecoregions. They simulate the evenness index in each candidate scenario, and choose the to protect the area where the PHE Index is highest.
 
 # Strengths and Limitations
-*Limitations*: 
-- Ecozones are **proxy** measures of ecologically relevent protected areas
-- PHEI does not account for protected areas where ecozones intersect
-- Sensitivity: 
+**Limitations**: <br>
+- Ecozones are **proxy** measures of ecologically relevent protected areas<br>
+- PHEI does not account for protected areas where ecozones intersect<br>
 
-*Strengths*: 
-- Measurable and built from peer-reviewed method to assess inequality across units
-- High quality data, updated often
-- Simple to communicate, and provides immediate feedback to decision-makers
+**Strengths**: <br>
+- Measurable and built from peer-reviewed method to assess inequality across units <br>
+- High quality data, updated often<br>
+- Simple to communicate, provides immediate feedback to decision-makers<br>
 
 

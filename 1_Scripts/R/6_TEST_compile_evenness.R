@@ -1,9 +1,9 @@
-source("1_Scripts/R/3_evenness_index_calculator.R")
-source("1_Scripts/R/6_compile_evenness.R")
+source("Habitat-Representativeness-Index/1_Scripts/R/5_evenness_index_calculator.R")
+source("Habitat-Representativeness-Index/1_Scripts/R/6_compile_evenness.R")
 # Load necessary libraries
 library(readr)
 library(dplyr)
-
+# getwd()
 # This runs the index calculator for each year and store the outputs as a 2d array
 
 # Takes a csv with 5 columns: "zone","total_area","protected_area","proportion", "year"
@@ -14,11 +14,18 @@ library(dplyr)
 
 
 # Example usage
-csv_file <- "output/ecozones_proportion_protected_test.csv"
+csv_file <- "Habitat-Representativeness-Index/output/ecozones_proportion_protected.csv"
 
 # Call the function to calculate evenness indices for each year
 results <- evenness_years(csv_file)
+str(results)
+results_df <- data.frame(
+  years = results$years,
+  evenness_index = results$evenness_index
+)
+write.csv(results_df, "Habitat-Representativeness-Index/output/PHEI_per_year.csv", row.names = FALSE)
 
+results.to_csv("Habitat-Representativeness-Index/output/PHEI_per_year.csv")
 # Print the results
 print(paste("Evenness Indices:", paste(results$evenness_index, collapse = ", ")))
 print(paste("Years:", paste(results$years, collapse = ", ")))
