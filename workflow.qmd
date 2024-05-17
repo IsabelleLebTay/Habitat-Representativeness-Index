@@ -1,7 +1,6 @@
 ---
 title: "Protected Habitat Evenness Index (PHEI)"
-author: "Isabelle Lebeuf-Taylor, Vanessa Di Maurizio, Vincent Bellavance et Benjamin Mercier"
-format: 
+author: "Isabelle Lebeuf-Taylor, Vanessa Di Maurizio, Vincent Bellavance et Benjamin Mercier"format: 
   revealjs:
     theme: [default]
     title-slide-attributes: 
@@ -15,7 +14,7 @@ editor: visual
 #### **Goal A:** 
 <p class="text-medium">
   (1) The integrity, connectivity and resilience of **all ecosystems** are maintained, enhanced, or restored, substantially increasing the area of natural ecosystems by 2050.
-
+  
   (2) <span class="text-transparent">
   Human induced extinction of known threatened species is halted, and, by 2050, the extinction rate and risk of all species are reduced tenfold and the abundance of native wild species is increased to healthy and resilient levels.
   </span>
@@ -132,11 +131,40 @@ ggsave("figures/quebec_map.png", plot = map_quebec, dpi = "retina", height = 18,
 
 ### Workflow
 
+```{mermaid}
+flowchart LR
+
+    A[Data ecoregion] 
+    B[Data protected areas] 
+
+    A --> C[Join, filter and intersect polygon data]
+    B --> C
+    C --> D(Compute ecozone PHC per yr)
+    D --> E(PHE function to get PHE score)
+  
+    E --> F[Barplot PHC by ecozone]
+    E --> G[Graph with evolution of PHE score]
+    E --> H[Map Canada PHC]
+  
+
+  style A fill:#84a98c
+  style B fill:#84a98c
+  style C fill:#e5e5e5
+  style D fill:#e5e5e5
+  style E fill:#e5e5e5
+  style F fill:#f4a261
+  style G fill:#f4a261
+  style H fill:#f4a261
+ 
+  
+```
+
 Headline indicator: Protected Habitat Coverage (PHC).
 
 Complementary indicator: Protected Habitat Eveness / Protection d'Habitat égal (PHE).
 
-```{r echo=FALSE}
+
+```{r echo=FALSE, eval=FALSE}
 library(DiagrammeR)
 
 DiagrammeR(
@@ -152,7 +180,6 @@ DiagrammeR(
   "
 )
 ```
-
 
 ### Scale
 National: Evenness across Canada ecozone given that each one are characterize by varying landscape and biodiveristy.
@@ -195,4 +222,16 @@ $p_{i}$ is the proportion of protected area within the *i* ecozone's total area
 
 # Example of PHE Index over time
 ![](figures/trend_example.png)
+
+# Interpretation
+The PHE index describes how close Canada is to meeting the ecological representativenness of our protected habitats. It highlights regions where further habitat protection initiatives will bring us closer to our commitment.
+
+## Example of use:
+- NCC is planning to acquire and preserve land. After applying KBA index and other species conservation indices, they have 4 candidate areas across multiple ecoregions. They simulate the evenness index in each candidate scenario, and choose the to protect the area where the PHE Index is highest.
+
+# Strengths and Limitations
+*Limitations*: while the index is useful for regional decision-making and immediate conservation action, its *specificity* is uncertain. Ecozones are **proxy** measures of ecologically relevent protected areas. Although ecozones are accepted ecological distinctions, our method does not account for protected areas where ecozones intersect, which may be particularly sensitive to climate change.
+
+*Strengths*: The index is measurable and adapts a peer-reviewed method to assess inequality across units, the Gini index. The quality of the data is verified and updated continuously by federal agencies. It is simple to communicate, and provides immediate feedback to decision-makers.
+
 

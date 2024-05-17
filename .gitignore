@@ -3,4 +3,9 @@
 Indicator Pipeline.Rproj
 Habitat-Representativeness-Index.Rproj
 workflow.html
+<<<<<<< HEAD
 workflow_files/*
+=======
+workflow_files/*
+output/protected_areas_1_to_6.geojson
+>>>>>>> 74796878323ff62fb377473f87b7285b4b5af087
