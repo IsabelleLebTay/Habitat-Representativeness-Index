@@ -1,5 +1,5 @@
 ---
-title: "The Protected Habitat Eveness (PHE)"
+title: "Protected Habitat Evenness Index (PHEI)"
 author: "Isabelle Lebeuf-Taylor, Vanessa Di Maurizio, Vincent Bellavance et Benjamin Mercier"
 format: 
   revealjs:
@@ -11,46 +11,55 @@ format:
 editor: visual
 ---
 
-## Kumming-Mtl Goal and target
+### Kunming-Montreal Goals and target
+#### **Goal A:** 
+<p class="text-medium">
+  (1) The integrity, connectivity and resilience of **all ecosystems** are maintained, enhanced, or restored, substantially increasing the area of natural ecosystems by 2050.
 
-**Goal A:** 
+  (2) <span class="text-transparent">
+  Human induced extinction of known threatened species is halted, and, by 2050, the extinction rate and risk of all species are reduced tenfold and the abundance of native wild species is increased to healthy and resilient levels.
+  </span>
 
-(1) The integrity, connectivity and resilience of all ecosystems are maintained, enhanced, or restored, substantially increasing the area of natural ecosystems by 2050; 
+  (3) <span class="text-transparent">
+  The genetic diversity within populations of wild and domesticated species, is maintained, safeguarding their adaptive potential.
+  </span>
 
-(2) Human induced extinction of known threatened species is halted, and, by 2050, the extinction rate and risk of all species are reduced tenfold and the abundance of native wild species is increased to healthy and resilient levels; 
+</p>
 
-(3) The genetic diversity within populations of wild and domesticated species, is maintained, safeguarding their adaptive potential.
+---
 
-**Target 3:**  Ensure and enable that by 2030 at least 30 per cent of **terrestrial and inland water areas**, and of marine and coastal areas, especially areas of particular importance for biodiversity and ecosystem functions and services, are effectively conserved and managed through **ecologically representative**, well-connected and equitably governed systems of protected areas and other effective area-based conservation measures, recognizing indigenous and traditional territories, where applicable, and integrated into wider landscapes, seascapes and the ocean, while ensuring that any sustainable use, where appropriate in such areas, is fully consistent with conservation outcomes, recognizing and respecting the rights of indigenous peoples and local communities, including over their traditional territories.
+### Kunming-Montreal Goal and target
+#### **Target 3:**
+::: {.centered .center-box}
+  <p class="text-medium">
+    Ensure and enable that by 2030 at least 30 per cent of **terrestrial and inland water areas**, and of marine and coastal areas, <span class="text-transparent">especially areas of particular importance for biodiversity and ecosystem functions and services</span>, are effectively conserved and managed through **ecologically representative**, <span class="text-transparent"> well-connected and equitably governed</span> **systems of protected areas and other effective area-based conservation measures**, <span class="text-transparent">recognizing indigenous and traditional territories, where applicable, and integrated into wider landscapes, seascapes and the ocean, while ensuring that any sustainable use, where appropriate in such areas, is fully consistent with conservation outcomes, recognizing and respecting the rights of indigenous peoples and local communities, including over their traditional territories.</span>
+  </p>
+:::
 
-<!blabla!>
+---
 
-## The Protected Habitat Eveness (PHE)
+### Protected Habitat Evenness Index (PHEI)
+::: {.centered .center-box}
+  **The PHEI reports the evenness of the spatial distribution of protected areas across ecologically distinct regions and directly adresses Canada's commitment to protect a representative 30% of our landscape.**
+:::
 
-We developed an indicator that is complementary to the *Coverage of protected areas and other effective area-based conservation measures*. Our measure address the second part of the target 3 which state that the 30X30 target needs to protect areas that are ecologically representative for biodiversity by considering that varying ecological zone, and corresponding biodiversity, should be **equally representative** in the 30x30 target.
+---
 
-## Scale
-National: Evenness across Canada ecozone given that each one are characterize by varying landscape and biodiveristy.
+### Type of protected areas
+*Protected area*: <p class="text-small">‘A clearly defined geographical space, recognized, dedicated and managed, through legal or other effective means, to achieve the long-term conservation of nature with associated ecosystem services and cultural values.’ (Dudley et al., 2008).</p>
 
-Subnational: Bioclimatic domains of Qc. Province
+*Other effective area-based conservation measure*: <p class="text-small">‘a geographically defined area other than a Protected Area, which is governed and managed in ways that achieve positive and sustained long-term outcomes for the in situ conservation of biodiversity, with associated ecosystem functions and services and where applicable, cultural, spiritual, socio–economic, and other locally relevant values.’ (CBD, 2018).</p>
 
-## Type of protected areas
-
-### Key definitions
-
-*Protected area*: ‘A clearly defined geographical space, recognized, dedicated and managed, through legal or other effective means, to achieve the long-term conservation of nature with associated ecosystem services and cultural values.’ (Dudley et al., 2008). 
-
-*Other effective area-based conservation measure*: ‘a geographically defined area other than a Protected Area, which is governed and managed in ways that achieve positive and sustained long-term outcomes for the in situ conservation of biodiversity, with associated ecosystem functions and services and where applicable, cultural, spiritual, socio–economic, and other locally relevant values.’ (CBD, 2018).
-
-*Areas of particular importance for biodiversity*: ‘sites that contain significant populations/extents of threatened or geographically restricted species or ecosystems, or that have significant ecological integrity or irreplaceability, significance for the maintenance of biological processes, or provide significant ecological connectivity to maintain populations of species’ (Plumptre et al 2024). Key Biodiversity Areas have been identified in all countries and represent the most comprehensive network of such sites, and are defined as sites “contributing significantly to the global persistence of biodiversity” (IUCN, 2016).
+---
 
 ### IUCN Categories 
 
-no| def
------|-----:
-I | Science or wilderness protection and Wilderness protection
-II | Ecosystem protection & recreation, Conservation of specific natural features, Conservation through management intervention, Landscape/seascape conservation or recreation, Sustainable use of natural resources
-III | KBA
+| no  | definition                                                                                                                                                            |
+|-----|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| I   | Science or wilderness protection and Wilderness protection                                                                                                      |
+| II  | Ecosystem protection & recreation, Conservation of specific natural features, Conservation through management intervention, Landscape/seascape conservation or recreation, Sustainable use of natural resources |
+
+---
 
 ```{r eval=FALSE, echo=FALSE}
 
@@ -121,7 +130,7 @@ map_quebec <- ggplot() +
 ggsave("figures/quebec_map.png", plot = map_quebec, dpi = "retina", height = 18, width = 21, units = "cm", bg = "white")
 ```
 
-## Workflow
+### Workflow
 
 Headline indicator: Protected Habitat Coverage (PHC).
 
@@ -144,6 +153,11 @@ DiagrammeR(
 )
 ```
 
+
+### Scale
+National: Evenness across Canada ecozone given that each one are characterize by varying landscape and biodiveristy.
+
+Subnational: Bioclimatic domains of Qc. Province
 
 ## The data
 

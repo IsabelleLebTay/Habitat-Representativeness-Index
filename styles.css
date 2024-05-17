@@ -2,3 +2,34 @@
 .reveal .slides>section:first-of-type * {
   color: white !important;
 }
+
+/* Define styles for different text sizes */
+.text-small {
+    font-size: 20px; /* Adjust the size as needed */
+}
+
+.text-medium {
+    font-size: 26px; /* Adjust the size as needed */
+}
+
+.text-large {
+    font-size: 32px; /* Adjust the size as needed */
+}
+
+.text-transparent {
+    opacity: 0.3; /* Set the opacity level (0 is completely transparent, 1 is fully opaque) */
+}
+
+.center-box {
+    text-align: center;
+    background-color: #DFDFDF;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.centered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60%;
+}
