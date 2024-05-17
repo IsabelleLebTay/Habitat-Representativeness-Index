@@ -160,10 +160,11 @@ flowchart LR
   
 ```
 
-Headline indicator: Protected Habitat Coverage (PHC).
+<p class="text-medium">**Headline indicator:** Protected Habitat Coverage (PHC).</p>
 
-Complementary indicator: Protected Habitat Eveness / Protection d'Habitat égal (PHE).
+<p class="text-medium">**Complementary indicator:** Protected Habitat Eveness / Protection d'Habitat égal (PHE).</p>
 
+---
 
 ```{r echo=FALSE, eval=FALSE}
 library(DiagrammeR)
@@ -182,27 +183,38 @@ DiagrammeR(
 )
 ```
 
-### Scale
-National: Evenness across Canada ecozone given that each one are characterize by varying landscape and biodiveristy.
+### The data
 
-Subnational: Bioclimatic domains of Qc. Province
+<div style="text-align:center;">
+  <img src="figures/map.png" style="width:700px;height:650px;" alt="Map">
+</div>
 
-## The data
+---
 
-![](figures/map.png)
+### The data
 
-![](figures/quebec_map.png)
+<div style="text-align:center;">
+  <img src="figures/quebec_map.png" style="width:700px;height:650px;" alt="Map">
+</div>
 
-## Method
+---
 
-To calculate the PHE, we take the *inverse* of the Gini inequality index, which is a measure of the extent to which a quantity of interest (traditionally income per countries) is equal across geographical zone.
+### Method
 
-Here, our quantity of interest are the size of protected areas and the geographical units are ecozones or bioclimatic domains. However, the geographical zone can be any ecologically and jurisdictionally interesting type, like ecoregion, or province.
+::: {.centered .center-box}
+  <p class="text-medium">
+    To calculate the PHE, we take the *inverse* of the Gini inequality index, which is a measure of the extent to which a quantity of interest (traditionally income per countries) is equal across geographical zone.
+    Our quantity of interest here are ecozonees and bioclimatic domains but it can be any ecologically and jurisdictionally interesting type, like ecoregion, or province.
+    We have also adapted the index so it accepts *proportions* of protected areas within geographical zones, since our ecozones are of different size. This ensures that one unit increase in proportion in one region has the same weight as a unit increase in another. This works toward our goal of mapping an even distribution of protected areas across ecozones.
+  </p>
 
-We have also adapted the index so it accepts *proportions* of protected areas within geographical zones, since our ecozones are of different size. This ensures that one unit increase in proportion in one region has the same weight as a unit increase in another. This works toward our goal of mapping an even distribution of protected areas across ecozones.
+:::
+
+---
+
+### PHEI computation
 
 The Protected Habitat Evenness Index is calculated as:
-
 
 $$
 PHEI = 1 - G
@@ -217,18 +229,44 @@ Where
 *n* is the number of ecozones, and 
 $p_{i}$ is the proportion of protected area within the *i* ecozone's total area 
 
+---
+
+### Results
+#### Protection habitat coverage (PHC)
+
+<div style="text-align:center;">
+  <img src="figures/stacked_barplot.png" style="width:900px;height:650px;" alt="Map">
+</div>
+
+---
+
+### Results
+#### Protection habitat evenness (PHE)
+
+<div style="text-align:center;">
+  <img src="figures/proportion_barplot.png" style="width:900px;height:600px;" alt="Map">
+</div>
+
+---
 
 **Interpretation:** Here, we take the inverse of the Gini index, so that 0 maps to low evenness and 1 is a perfect evenness.
 
+---
 
 # Example of PHE Index over time
 ![](figures/trend_last3years.png)
 
+---
+
 # Interpretation
 The PHE index describes how close Canada is to meeting the ecological representativenness of our protected habitats. It highlights regions where further habitat protection initiatives will bring us closer to our commitment.
 
+---
+
 ## Example of use:
 - NCC is planning to acquire and preserve land. After applying KBA index and other species conservation indices, they have 4 candidate areas across multiple ecoregions. They simulate the evenness index in each candidate scenario, and choose the to protect the area where the PHE Index is highest.
+
+---
 
 # Strengths and Limitations
 **Limitations**: <br>
@@ -240,4 +278,4 @@ The PHE index describes how close Canada is to meeting the ecological representa
 - High quality data, updated often<br>
 - Simple to communicate, provides immediate feedback to decision-makers<br>
 
-
+---
