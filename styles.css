@@ -1,0 +1,4 @@
+/* Make all text white on the title slide */
+.reveal .slides>section:first-of-type * {
+  color: white !important;
+}
