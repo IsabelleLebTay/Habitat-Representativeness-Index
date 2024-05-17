@@ -56,3 +56,22 @@ dl_protected_areas <- function(filename = import_config()$protected_zipfile,
   unzip(sprintf("%s/%s.zip", tempdir(), filename), exdir = here::here(datadir))
 
 }
+
+dl_qc_bioclimatic <- function(filename = import_config()$qc_bioclimatic_zipfile,
+                              datadir = import_config()$raw_data_path) {
+
+  # Download the bioclimatic data
+  # Specify the URL of the file you want to download
+  url <- "https://diffusion.mffp.gouv.qc.ca/Diffusion/DonneeGratuite/Foret/DONNEES_FOR_ECO_SUD/Classification_ecologique/CLASSI_ECO_QC_GDB.zip"
+
+  # Create directory if it doesn't exist
+  chk::chk_dir(datadir)
+  # Call the download.file() function, passing in the URL and file name/location as arguments
+  download.file(url, sprintf("%s/%s.zip", tempdir(), filename), mode = "wb")
+
+  # Unzip the folder
+  unzip(sprintf("%s/%s.zip", tempdir(), filename), exdir = here::here(datadir))
+
+}
+
+
