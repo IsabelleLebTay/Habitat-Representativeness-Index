@@ -222,7 +222,7 @@ $p_{i}$ is the proportion of protected area within the *i* ecozone's total area
 
 
 # Example of PHE Index over time
-![](figures/PHEI_per_year.png)
+![](figures/trend_last3years.png)
 
 # Interpretation
 The PHE index describes how close Canada is to meeting the ecological representativenness of our protected habitats. It highlights regions where further habitat protection initiatives will bring us closer to our commitment.
