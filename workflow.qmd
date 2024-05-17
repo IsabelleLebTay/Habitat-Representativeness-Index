@@ -266,16 +266,31 @@ The PHE index describes how close Canada is to meeting the ecological representa
 ## Example of use:
 - NCC is planning to acquire and preserve land. After applying KBA index and other species conservation indices, they have 4 candidate areas across multiple ecoregions. They simulate the evenness index in each candidate scenario, and choose the to protect the area where the PHE Index is highest.
 
----
-
 # Strengths and Limitations
-**Limitations**: <br>
-- Ecozones are **proxy** measures of ecologically relevent protected areas<br>
-- PHEI does not account for protected areas where ecozones intersect<br>
 
-**Strengths**: <br>
-- Measurable and built from peer-reviewed method to assess inequality across units <br>
-- High quality data, updated often<br>
-- Simple to communicate, provides immediate feedback to decision-makers<br>
+*Strengths*:
 
----
+  - Simplicity
+  - Quality of the data
+  - Gini index is well known
+  - Easily comparable
+  - Easy to make predictions
+
+*Limitations*: 
+
+  - Not sufficient for decision-making at small scale
+  - Not representative of the biodiversity distribution and importance at small scale
+  - Insensitivity to changes at the top and bottom of the distribution
+
+*Consideration*:
+
+  - **Relevance** is at **large scale**
+
+# What have we learned?
+
+- Trade-off:
+  - Data available
+  - Indicators
+  - Decision-making
+
+- Values
