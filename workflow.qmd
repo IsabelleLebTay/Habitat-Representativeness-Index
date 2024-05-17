@@ -1,6 +1,7 @@
 ---
 title: "The Protected Habitat Eveness (PHE)"
 author: "Isabelle Lebeuf-Taylor, Vanessa Di Maurizio, Vincent Bellavance et Benjamin Mercier"
+<<<<<<< HEAD
 documentclass: book
 output:
   html_document:
@@ -11,6 +12,19 @@ output:
 ---
 
 # Kumming-Mtl Goal and target
+=======
+format: 
+  revealjs:
+    theme: [default]
+    title-slide-attributes: 
+      data-background-image: "https://whc.org/wp-content/themes/whc24/dist/images/grants-background.jpg"
+      data-background-size: contain
+    css: styles.css
+editor: visual
+---
+
+## Kumming-Mtl Goal and target
+>>>>>>> 74796878323ff62fb377473f87b7285b4b5af087
 
 **Goal A:** 
 
@@ -24,7 +38,11 @@ output:
 
 <!blabla!>
 
+<<<<<<< HEAD
 # The Protected Habitat Eveness (PHE)
+=======
+## The Protected Habitat Eveness (PHE)
+>>>>>>> 74796878323ff62fb377473f87b7285b4b5af087
 
 We developed an indicator that is complementary to the *Coverage of protected areas and other effective area-based conservation measures*. Our measure address the second part of the target 3 which state that the 30X30 target needs to protect areas that are ecologically representative for biodiversity by considering that varying ecological zone, and corresponding biodiversity, should be **equally representative** in the 30x30 target.
 
@@ -122,6 +140,7 @@ ggsave("figures/quebec_map.png", plot = map_quebec, dpi = "retina", height = 18,
 
 ## Workflow
 
+<<<<<<< HEAD
 
 
 ```{mermaid}
@@ -152,10 +171,32 @@ flowchart LR
   
 ```
 
+=======
+>>>>>>> 74796878323ff62fb377473f87b7285b4b5af087
 Headline indicator: Protected Habitat Coverage (PHC).
 
 Complementary indicator: Protected Habitat Eveness / Protection d'Habitat égal (PHE).
 
+<<<<<<< HEAD
+=======
+```{r echo=FALSE}
+library(DiagrammeR)
+
+DiagrammeR(
+  "
+  graph TB
+  
+  A[Data ecoregion] --> C[Joined data]
+  B[Data protected areas] --> C[Joined data]
+  C --> E[Compute PHC by ecoregions and type and ecoregions]
+  C --> F[Compute PHE across ecoregions and types ecoregions]
+  E --> G[Visualize MAP]
+  F --> H[Visualize score throught yrs]
+  "
+)
+```
+
+>>>>>>> 74796878323ff62fb377473f87b7285b4b5af087
 
 ## The data
 

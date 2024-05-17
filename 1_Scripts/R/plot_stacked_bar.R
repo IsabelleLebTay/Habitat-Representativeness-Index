@@ -16,13 +16,8 @@ plot_prop_stacked_bar(unit = "ecozones") {
   secondary_coords <- c(
     x0 = -20,
     x1 = 120,
-<<<<<<< HEAD
-    y0 = -100,
-    y1 = -70
-=======
     y0 = -45,
     y1 = -20
->>>>>>> 74796878323ff62fb377473f87b7285b4b5af087
   )
 
   # Compute total protected area
@@ -32,10 +27,7 @@ plot_prop_stacked_bar(unit = "ecozones") {
                       unit,
                       import_config()$proportion_df)
   dat <- read.csv(filename)
-<<<<<<< HEAD
-=======
   dat <- dat[dat$year %in% 2023,]
->>>>>>> 74796878323ff62fb377473f87b7285b4b5af087
 
   total_protected_area <- main_coords["x1"]*(sum(dat$protected_area)/sum(dat$total_area))
 
@@ -46,18 +38,11 @@ plot_prop_stacked_bar(unit = "ecozones") {
     width = 1000,
     unit = "px"
   )
-<<<<<<< HEAD
-  plot(
-    NA,
-    xlim = c(secondary_coords["x0"], secondary_coords["x1"]),
-    ylim = c(secondary_coords["y0"], main_coords["y1"]),
-=======
   dev.new(height = 8, width = 16)
   plot(
     NA,
     xlim = c(secondary_coords["x0"], secondary_coords["x1"]),
     ylim = c(secondary_coords["y0"] - 20, main_coords["y1"]),
->>>>>>> 74796878323ff62fb377473f87b7285b4b5af087
     axes = FALSE,
     bty = "n",
     xlab = "",
@@ -75,21 +60,12 @@ plot_prop_stacked_bar(unit = "ecozones") {
   # Total protected rectangle
   rect(
     xleft = main_coords["x0"],
-<<<<<<< HEAD
-    xright = total_protected_area,
-=======
     xright = 100*(total_protected_area/30),
->>>>>>> 74796878323ff62fb377473f87b7285b4b5af087
     ybottom = main_coords["y0"],
     ytop = main_coords["y1"],
     col = "#374f2f",
     border = "black"
   )  
-<<<<<<< HEAD
-
-  # Stacked bar by ecozones
-  dat[,"x1_coords"] <- (cumsum(dat$proportion)/max(cumsum(dat$proportion)))*secondary_coords["x1"]
-=======
   text(
     sprintf(
       "%.2f %%",
@@ -102,7 +78,6 @@ plot_prop_stacked_bar(unit = "ecozones") {
   )
   # Stacked bar by ecozones
   dat[,"x1_coords"] <- (cumsum(dat$protected_area)/max(cumsum(dat$protected_area)))*secondary_coords["x1"]
->>>>>>> 74796878323ff62fb377473f87b7285b4b5af087
   dat[,"x0_coords"] <- c(secondary_coords["x0"], dat$x1_coords[1:(nrow(dat)-1)])
   custom_colors <- c("Northern Arctic" = "lightskyblue", "Arctic Cordillera" = "royalblue", "Southern Arctic" = "royalblue4", "Taiga Cordillera" = "lavenderblush3", "Taiga Plain" = "khaki4", "Taiga Shield" = "orangered4", "Boreal Cordillera" = "darkolivegreen", "Boreal PLain" = "darkgreen", "Pacific Maritime" = "turquoise3", "Boreal Shield" = "coral2", "Hudson Plain" = "lightsalmon3", "Montane Cordillera" = "gold3", "Prairie" = "orange", "Atlantic Maritime" = "midnightblue", "MixedWood Plain" = "springgreen")
 
@@ -112,16 +87,6 @@ plot_prop_stacked_bar(unit = "ecozones") {
       xright = dat[dat$zone == i, "x1_coords"],
       ybottom = secondary_coords["y0"],
       ytop = secondary_coords["y1"],
-<<<<<<< HEAD
-      col = custom_colors[i],
-      border = custom_colors[i],
-      lwd = 0
-    )  
-  }
-  dev.off()
-
-
-=======
       col = adjustcolor(custom_colors[i], alpha.f = 0.5),
       border = "black",
       lwd = 1
@@ -166,5 +131,4 @@ plot_prop_stacked_bar(unit = "ecozones") {
 
   dev.off()
 
->>>>>>> 74796878323ff62fb377473f87b7285b4b5af087
 }
