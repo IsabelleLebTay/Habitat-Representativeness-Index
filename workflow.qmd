@@ -1,6 +1,18 @@
 ---
 title: "The Protected Habitat Eveness (PHE)"
 author: "Isabelle Lebeuf-Taylor, Vanessa Di Maurizio, Vincent Bellavance et Benjamin Mercier"
+<<<<<<< HEAD
+documentclass: book
+output:
+  html_document:
+    toc: true
+    number_sections: true
+    revealjs_presentation:
+    incremental: true   
+---
+
+# Kumming-Mtl Goal and target
+=======
 format: 
   revealjs:
     theme: [default]
@@ -12,6 +24,7 @@ editor: visual
 ---
 
 ## Kumming-Mtl Goal and target
+>>>>>>> 74796878323ff62fb377473f87b7285b4b5af087
 
 **Goal A:** 
 
@@ -25,7 +38,11 @@ editor: visual
 
 <!blabla!>
 
+<<<<<<< HEAD
+# The Protected Habitat Eveness (PHE)
+=======
 ## The Protected Habitat Eveness (PHE)
+>>>>>>> 74796878323ff62fb377473f87b7285b4b5af087
 
 We developed an indicator that is complementary to the *Coverage of protected areas and other effective area-based conservation measures*. Our measure address the second part of the target 3 which state that the 30X30 target needs to protect areas that are ecologically representative for biodiversity by considering that varying ecological zone, and corresponding biodiversity, should be **equally representative** in the 30x30 target.
 
@@ -123,10 +140,45 @@ ggsave("figures/quebec_map.png", plot = map_quebec, dpi = "retina", height = 18,
 
 ## Workflow
 
+<<<<<<< HEAD
+
+
+```{mermaid}
+flowchart LR
+
+    A[Data ecoregion] 
+    B[Data protected areas] 
+
+    A --> C[Join, filter and intersect polygon data]
+    B --> C
+    C --> D(Compute ecozone PHC per yr)
+    D --> E(PHE function to get PHE score)
+  
+    E --> F[Barplot PHC by ecozone]
+    E --> G[Graph with evolution of PHE score]
+    E --> H[Map Canada PHC]
+  
+
+  style A fill:#84a98c
+  style B fill:#84a98c
+  style C fill:#e5e5e5
+  style D fill:#e5e5e5
+  style E fill:#e5e5e5
+  style F fill:#f4a261
+  style G fill:#f4a261
+  style H fill:#f4a261
+ 
+  
+```
+
+=======
+>>>>>>> 74796878323ff62fb377473f87b7285b4b5af087
 Headline indicator: Protected Habitat Coverage (PHC).
 
 Complementary indicator: Protected Habitat Eveness / Protection d'Habitat égal (PHE).
 
+<<<<<<< HEAD
+=======
 ```{r echo=FALSE}
 library(DiagrammeR)
 
@@ -144,6 +196,7 @@ DiagrammeR(
 )
 ```
 
+>>>>>>> 74796878323ff62fb377473f87b7285b4b5af087
 
 ## The data
 

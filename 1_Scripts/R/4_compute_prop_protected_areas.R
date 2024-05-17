@@ -8,9 +8,12 @@ prop_protected_areas <- function(unit = "ecozones", zone = "ZONE_NAME") {
   if(unit == "ecozones") dat <- read_ecozones()
   protected_areas <- read_protected_areas()
 
+<<<<<<< HEAD
+=======
   # Filter for terrestrial
   protected_areas <- protected_areas[protected_areas$BIOME == "T",]
 
+>>>>>>> 74796878323ff62fb377473f87b7285b4b5af087
   # Check if both are MULTIPOLYGON geometry type
   dat <- sf::st_cast(dat, "MULTIPOLYGON")
   protected_areas <- sf::st_cast(protected_areas, "MULTIPOLYGON")
@@ -21,6 +24,27 @@ prop_protected_areas <- function(unit = "ecozones", zone = "ZONE_NAME") {
     protected_areas |> terra::vect()
   )
 
+<<<<<<< HEAD
+  # Create table to store informations about areas
+  df <- data.frame(
+    zone = unique(dat[,zone, drop = TRUE]),
+    total_area = NA,
+    protected_area = NA,
+    proportion = NA
+  )
+
+  # Fill in table
+  for(i in 1:nrow(df)) {
+    tmp <- dat[dat[,zone, drop = TRUE] %in% df[i,"zone"],] |> terra::vect()
+    tmp_protected <- intersected_dat[intersected_dat[,zone, drop = TRUE][,1] %in% df[i,"zone"],]
+    df[i, "total_area"] <- terra::expanse(tmp, unit = "km") |> sum()
+    df[i, "protected_area"] <- terra::expanse(tmp_protected, unit = "km") |> sum()
+    df[i, "proportion"] <- df[i,"protected_area"]/df[i, "total_area"]
+  }
+
+  # Create output directory if it doesn't exist
+  chk_dir(import_config()$output_path)
+=======
   year2020 <- intersected_dat$QUALYEAR <= 2020
   na_year <- is.na(intersected_dat$QUALYEAR)
   intersected_dat[year2020, "QUALYEAR"] <- 2020
@@ -56,6 +80,7 @@ prop_protected_areas <- function(unit = "ecozones", zone = "ZONE_NAME") {
   # Create output directory if it doesn't exist
   chk_dir(import_config()$output_path)
   # Save table
+>>>>>>> 74796878323ff62fb377473f87b7285b4b5af087
   write.csv(
     df,
     sprintf("%s/%s_%s", 
