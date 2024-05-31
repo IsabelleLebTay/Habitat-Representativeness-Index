@@ -232,7 +232,7 @@ $p_{i}$ is the proportion of protected area within the *i* ecozone's total area
 ---
 
 ### Results
-#### Protection habitat coverage (PHC)
+#### Protected habitat coverage (PHC)
 
 <div style="text-align:center;">
   <img src="figures/stacked_barplot.png" style="width:900px;height:650px;" alt="Map">
@@ -241,7 +241,7 @@ $p_{i}$ is the proportion of protected area within the *i* ecozone's total area
 ---
 
 ### Results
-#### Protection habitat evenness (PHE)
+#### Protected habitat evenness (PHEI)
 
 <div style="text-align:center;">
   <img src="figures/proportion_barplot.png" style="width:900px;height:600px;" alt="Map">
@@ -249,34 +249,40 @@ $p_{i}$ is the proportion of protected area within the *i* ecozone's total area
 
 ---
 
-**Interpretation:** Here, we take the inverse of the Gini index, so that 0 maps to low evenness and 1 is a perfect evenness.
+### Example of PHEI Index over time
+
+<div style="text-align:center;">
+  <img src="figures/trend_last3years.png" style="width:900px;height:600px;" alt="Map">
+</div>
 
 ---
 
-# Example of PHE Index over time
-![](figures/trend_last3years.png)
+### Interpretation
+The PHEI index describes how close Canada is to meeting the ecological representativenness of our protected habitats. It highlights regions where further habitat protection initiatives will bring us closer to our commitment.
 
 ---
 
-# Interpretation
-The PHE index describes how close Canada is to meeting the ecological representativenness of our protected habitats. It highlights regions where further habitat protection initiatives will bring us closer to our commitment.
-
----
-
-## Example of use:
+### Example of use:
 - NCC is planning to acquire and preserve land. After applying KBA index and other species conservation indices, they have 4 candidate areas across multiple ecoregions. They simulate the evenness index in each candidate scenario, and choose the to protect the area where the PHE Index is highest.
 
-# Strengths and Limitations
+---
 
-*Strengths*:
+### Strengths
+
+<p class="text-medium">
 
   - Simplicity
   - Quality of the data
   - Gini index is well known
   - Easily comparable
   - Easy to make predictions
+</p>
 
-*Limitations*: 
+---
+
+### Limitations
+
+<p class="text-medium">
 
   - Not sufficient for decision-making at small scale
   - Not representative of the biodiversity distribution and importance at small scale
@@ -286,7 +292,11 @@ The PHE index describes how close Canada is to meeting the ecological representa
 
   - **Relevance** is at **large scale**
 
-# What have we learned?
+</p>
+
+---
+
+### What have we learned?
 
 - Trade-off:
   - Data available
